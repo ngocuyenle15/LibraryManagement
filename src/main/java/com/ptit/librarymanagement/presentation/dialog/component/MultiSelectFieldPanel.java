@@ -1,6 +1,6 @@
 package com.ptit.librarymanagement.presentation.dialog.component;
 
-import lombok.Getter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -9,7 +9,7 @@ import java.util.*;
 import java.util.List;
 import java.util.function.Function;
 
-@Getter
+
 public class MultiSelectFieldPanel<T> extends JPanel {
 
     private JLabel label;
@@ -77,5 +77,15 @@ public class MultiSelectFieldPanel<T> extends JPanel {
         label.setText(text);
     }
 
+    public JLabel getLabel() {
+        return label;
+    }
 
+    public MultiSelectForm<T> getField() {
+        return field;
+    }
+
+    public Function<T, String> getToDisplay() {
+        return toDisplay;
+    }
 }

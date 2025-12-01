@@ -1,20 +1,21 @@
 package com.ptit.librarymanagement.dao;
 
-import com.ptit.librarymanagement.dto.AccountDTO;
+import com.ptit.librarymanagement.model.dto.AccountDTO;
 import com.ptit.librarymanagement.common.enums.Role;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import org.apache.poi.sl.draw.geom.GuideIf;
+
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@RequiredArgsConstructor
-@Getter
+
 public class AccountDAO {
     private final Connection connection;
+
+    public AccountDAO(Connection connection) {
+        this.connection = connection;
+    }
 
     public List<AccountDTO> getAllAccount () {
         List<AccountDTO> accountDTOList = new ArrayList<>();
@@ -53,7 +54,6 @@ public class AccountDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         return Optional.empty();
     }
 
@@ -142,7 +142,7 @@ public class AccountDAO {
 
     // chỉnh lại đăng nhập bằng email or username
     public boolean checkMail (String mail) {
-        String sql = "select * from staff where email = ? ";
+        String sql = "select * from staff where email = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, mail);
             try (ResultSet rs = statement.executeQuery()) {
@@ -171,8 +171,7 @@ public class AccountDAO {
 
     public Optional<AccountDTO> getAccountByEmail (String email) {
 
-        String sql = "select * from account join staff join library_management.role r on account.role_id = r.id\n" +
-                "where staff.email = ?";
+        String sql = "select * from account join staff on account.id = staff.account_id where staff.email = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, email);
             try (ResultSet rs = statement.executeQuery()) {
@@ -191,7 +190,5 @@ public class AccountDAO {
 
         return Optional.empty();
     }
-
-
 
 }

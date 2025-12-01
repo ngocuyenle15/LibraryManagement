@@ -1,8 +1,8 @@
 package com.ptit.librarymanagement.dao;
 
-import com.ptit.librarymanagement.dto.AccountDTO;
+import com.ptit.librarymanagement.model.dto.AccountDTO;
 import com.ptit.librarymanagement.common.enums.Role;
-import com.ptit.librarymanagement.dto.StaffDTO;
+import com.ptit.librarymanagement.model.dto.StaffDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

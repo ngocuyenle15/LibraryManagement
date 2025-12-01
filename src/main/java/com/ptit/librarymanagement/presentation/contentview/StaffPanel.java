@@ -2,13 +2,10 @@ package com.ptit.librarymanagement.presentation.contentview;
 
 import com.ptit.librarymanagement.common.dbutils.DbConnection;
 import com.ptit.librarymanagement.common.transactionmanager.TransactionManager;
-import com.ptit.librarymanagement.dto.StaffDTO;
+import com.ptit.librarymanagement.model.dto.StaffDTO;
 import com.ptit.librarymanagement.presentation.contentview.component.*;
 import com.ptit.librarymanagement.service.BookService;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -19,7 +16,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@Data
+
 public class StaffPanel extends JPanel {
     private JPanel pnlBorder1, pnlBorder2, pnlBorder3, pnlBorder4;
     private Color BackgroundColor = new Color(240, 247, 250);
@@ -30,14 +27,14 @@ public class StaffPanel extends JPanel {
     private JPanel contentCenter;
     private PanelBorderRadius main;
     private StaffPanelModel model;
-    private BookService bookService;
+//    private BookService bookService;
     private PaginationPanel paginationPanel;
 
 
 
 
     public StaffPanel() {
-        this.bookService = TransactionManager.createService(BookService.class, DbConnection.getConnection());
+//        this.bookService = TransactionManager.createService(BookService.class, DbConnection.getConnection());
         this.model = new StaffPanelModel();
         initComponent();
         decorateView();
@@ -103,8 +100,8 @@ public class StaffPanel extends JPanel {
     public void loadDataInTable () {
         DefaultTableModel tableModel = this.scrollTable.getTableModel();
         tableModel.setRowCount(0);
-        for (StaffDTO book : model.getListStaff()) {
-            tableModel.addRow(book.getRow());
+        for (StaffDTO staff : model.getListStaff()) {
+            tableModel.addRow(staff.getRow());
         }
     }
 
@@ -131,14 +128,130 @@ public class StaffPanel extends JPanel {
         this.add(pnlBorder4, BorderLayout.WEST);
     }
 
+    public JPanel getPnlBorder1() {
+        return pnlBorder1;
+    }
+
+    public void setPnlBorder1(JPanel pnlBorder1) {
+        this.pnlBorder1 = pnlBorder1;
+    }
+
+    public JPanel getPnlBorder2() {
+        return pnlBorder2;
+    }
+
+    public void setPnlBorder2(JPanel pnlBorder2) {
+        this.pnlBorder2 = pnlBorder2;
+    }
+
+    public JPanel getPnlBorder3() {
+        return pnlBorder3;
+    }
+
+    public void setPnlBorder3(JPanel pnlBorder3) {
+        this.pnlBorder3 = pnlBorder3;
+    }
+
+    public JPanel getPnlBorder4() {
+        return pnlBorder4;
+    }
+
+    public void setPnlBorder4(JPanel pnlBorder4) {
+        this.pnlBorder4 = pnlBorder4;
+    }
+
+    public Color getBackgroundColor() {
+        return BackgroundColor;
+    }
+
+    public void setBackgroundColor(Color backgroundColor) {
+        BackgroundColor = backgroundColor;
+    }
+
+    public ScrollTable getScrollTable() {
+        return scrollTable;
+    }
+
+    public void setScrollTable(ScrollTable scrollTable) {
+        this.scrollTable = scrollTable;
+    }
+
+    public PanelBorderRadius getFunctionBar() {
+        return functionBar;
+    }
+
+    public void setFunctionBar(PanelBorderRadius functionBar) {
+        this.functionBar = functionBar;
+    }
+
+    public IntegratedSearch getIntegratedSearch() {
+        return integratedSearch;
+    }
+
+    public void setIntegratedSearch(IntegratedSearch integratedSearch) {
+        this.integratedSearch = integratedSearch;
+    }
+
+    public FunctionToolBar getFunctionToolBar() {
+        return functionToolBar;
+    }
+
+    public void setFunctionToolBar(FunctionToolBar functionToolBar) {
+        this.functionToolBar = functionToolBar;
+    }
+
+    public JPanel getContentCenter() {
+        return contentCenter;
+    }
+
+    public void setContentCenter(JPanel contentCenter) {
+        this.contentCenter = contentCenter;
+    }
+
+    public PanelBorderRadius getMain() {
+        return main;
+    }
+
+    public void setMain(PanelBorderRadius main) {
+        this.main = main;
+    }
+
+    public StaffPanelModel getModel() {
+        return model;
+    }
+
+    public void setModel(StaffPanelModel model) {
+        this.model = model;
+    }
 
 
-    @Getter
-    @Setter
-    @NoArgsConstructor
+
+
+    public PaginationPanel getPaginationPanel() {
+        return paginationPanel;
+    }
+
+    public void setPaginationPanel(PaginationPanel paginationPanel) {
+        this.paginationPanel = paginationPanel;
+    }
+
     public static class StaffPanelModel {
         private List <StaffDTO> listStaff;
 
+        public StaffPanelModel(List<StaffDTO> listStaff) {
+            this.listStaff = listStaff;
+        }
+
+        public StaffPanelModel() {
+        }
+
+        public List<StaffDTO> getListStaff() {
+            return listStaff;
+        }
+
+        public void setListStaff(List<StaffDTO> listStaff) {
+            this.listStaff = listStaff;
+        }
     }
 
 }

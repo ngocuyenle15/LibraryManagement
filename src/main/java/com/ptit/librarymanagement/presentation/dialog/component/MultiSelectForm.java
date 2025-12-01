@@ -1,8 +1,7 @@
 package com.ptit.librarymanagement.presentation.dialog.component;
 
 import com.formdev.flatlaf.FlatLightLaf;
-import lombok.Getter;
-import lombok.Setter;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,8 +14,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-@Getter
-@Setter
+
 public class MultiSelectForm<T> extends JPanel {
     private HeaderTitle titlePanel;
     private JTextField textField;
@@ -249,4 +247,87 @@ public class MultiSelectForm<T> extends JPanel {
         }
     }
 
+    public HeaderTitle getTitlePanel() {
+        return titlePanel;
+    }
+
+    public void setTitlePanel(HeaderTitle titlePanel) {
+        this.titlePanel = titlePanel;
+    }
+
+    public JTextField getTextField() {
+        return textField;
+    }
+
+    public void setTextField(JTextField textField) {
+        this.textField = textField;
+    }
+
+    public JDialog getDialog() {
+        return dialog;
+    }
+
+    public void setDialog(JDialog dialog) {
+        this.dialog = dialog;
+    }
+
+    public DefaultListModel<T> getListModel() {
+        return listModel;
+    }
+
+    public void setListModel(DefaultListModel<T> listModel) {
+        this.listModel = listModel;
+    }
+
+    public JList<T> getList() {
+        return list;
+    }
+
+    public void setList(JList<T> list) {
+        this.list = list;
+    }
+
+    public JButton getOkButton() {
+        return okButton;
+    }
+
+    public void setOkButton(JButton okButton) {
+        this.okButton = okButton;
+    }
+
+    public JButton getCancelButton() {
+        return cancelButton;
+    }
+
+    public void setCancelButton(JButton cancelButton) {
+        this.cancelButton = cancelButton;
+    }
+
+    public JButton getCreateButton() {
+        return createButton;
+    }
+
+    public void setCreateButton(JButton createButton) {
+        this.createButton = createButton;
+    }
+
+    public T[] getItems() {
+        return items;
+    }
+
+    public Function<T, String> getToDisplay() {
+        return toDisplay;
+    }
+
+    public Set<T> getSelectedSet() {
+        return selectedSet;
+    }
+
+    public boolean isSingle() {
+        return single;
+    }
+
+    public void setSingle(boolean single) {
+        this.single = single;
+    }
 }

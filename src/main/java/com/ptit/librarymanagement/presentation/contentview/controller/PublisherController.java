@@ -2,7 +2,7 @@ package com.ptit.librarymanagement.presentation.contentview.controller;
 
 import com.ptit.librarymanagement.common.dbutils.DbConnection;
 import com.ptit.librarymanagement.common.validation.ValidationService;
-import com.ptit.librarymanagement.dto.PublisherDTO;
+import com.ptit.librarymanagement.model.dto.PublisherDTO;
 import com.ptit.librarymanagement.presentation.dialog.PublisherDialog;
 import com.ptit.librarymanagement.presentation.contentview.PublisherPanel;
 import com.ptit.librarymanagement.service.PublisherService;

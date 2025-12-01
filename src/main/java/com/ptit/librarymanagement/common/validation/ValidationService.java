@@ -2,14 +2,19 @@ package com.ptit.librarymanagement.common.validation;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
-import lombok.RequiredArgsConstructor;
+
 
 import javax.swing.*;
 import java.util.Set;
 
-@RequiredArgsConstructor
+
 public class ValidationService {
     private final Validator validator;
+
+    public ValidationService(Validator validator) {
+        this.validator = validator;
+    }
+
     public boolean checkConstraint (Object o) {
         Set<ConstraintViolation<Object>> violations = validator.validate(o);
         if (!violations.isEmpty()) {

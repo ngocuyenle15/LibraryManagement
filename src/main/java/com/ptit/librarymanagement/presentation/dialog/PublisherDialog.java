@@ -4,18 +4,18 @@ package com.ptit.librarymanagement.presentation.dialog;
 
 
 
-import com.ptit.librarymanagement.dto.PublisherDTO;
+import com.ptit.librarymanagement.model.dto.PublisherDTO;
 import com.ptit.librarymanagement.presentation.dialog.component.ButtonCustom;
 import com.ptit.librarymanagement.presentation.dialog.component.HeaderTitle;
 
 import com.ptit.librarymanagement.presentation.dialog.component.InputForm;
-import lombok.Data;
+
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-@Data
+
 public class PublisherDialog extends JDialog {
     private HeaderTitle titlePage;
     private JPanel mainPanel, bottomPanel;
@@ -106,5 +106,47 @@ public class PublisherDialog extends JDialog {
         this.add(bottomPanel, BorderLayout.SOUTH);
     }
 
+    public HeaderTitle getTitlePage() {
+        return titlePage;
+    }
 
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
+
+    public JPanel getBottomPanel() {
+        return bottomPanel;
+    }
+
+    public ButtonCustom getCreateButton() {
+        return createButton;
+    }
+
+    public ButtonCustom getUpdateButton() {
+        return updateButton;
+    }
+
+    public ButtonCustom getCancelButton() {
+        return cancelButton;
+    }
+
+    public InputForm getNameInput() {
+        return nameInput;
+    }
+
+    public InputForm getPhoneInput() {
+        return phoneInput;
+    }
+
+    public InputForm getEmailInput() {
+        return emailInput;
+    }
+
+    public InputForm getLocationInput() {
+        return locationInput;
+    }
+
+    public JTextField getIdInput() {
+        return idInput;
+    }
 }

@@ -2,19 +2,18 @@ package com.ptit.librarymanagement.presentation.dialog;
 
 
 
-import com.formdev.flatlaf.FlatLightLaf;
-import com.ptit.librarymanagement.dto.AccountDTO;
+import com.ptit.librarymanagement.model.dto.AccountDTO;
 import com.ptit.librarymanagement.presentation.dialog.component.ButtonCustom;
 import com.ptit.librarymanagement.presentation.dialog.component.HeaderTitle;
 import com.ptit.librarymanagement.presentation.dialog.component.InputForm;
-import lombok.Getter;
+
 
 import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-@Getter
+
 public class AccountPanel extends JPanel {
 
     private HeaderTitle titlePage;
@@ -102,5 +101,47 @@ public class AccountPanel extends JPanel {
         add(bottomPanel, BorderLayout.SOUTH);
     }
 
+    public HeaderTitle getTitlePage() {
+        return titlePage;
+    }
 
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
+
+    public JPanel getBottomPanel() {
+        return bottomPanel;
+    }
+
+    public ButtonCustom getCreateButton() {
+        return createButton;
+    }
+
+    public ButtonCustom getUpdateButton() {
+        return updateButton;
+    }
+
+    public ButtonCustom getCancelButton() {
+        return cancelButton;
+    }
+
+    public InputForm getUserNameInput() {
+        return userNameInput;
+    }
+
+    public InputForm getOldPasswordInput() {
+        return oldPasswordInput;
+    }
+
+    public InputForm getNewPasswordInput() {
+        return newPasswordInput;
+    }
+
+    public JTextField getIdInput() {
+        return idInput;
+    }
+
+    public Runnable getOnCancel() {
+        return onCancel;
+    }
 }

@@ -2,14 +2,10 @@ package com.ptit.librarymanagement.presentation.contentview;
 
 
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
-import com.ptit.librarymanagement.dto.BookDTO;
-import com.ptit.librarymanagement.dto.CategoryDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.CategoryDTO;
 import com.ptit.librarymanagement.presentation.contentview.component.*;
 import com.ptit.librarymanagement.presentation.mainview.menu.ItemTaskbar;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 
 import javax.swing.*;
@@ -24,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.function.Supplier;
 
-@Getter
+
 public class CategoryPanel extends JPanel {
     private JPanel bookInCategory;
     private JPanel contentCenter;
@@ -141,12 +137,77 @@ public class CategoryPanel extends JPanel {
         bookInCategory.validate();
     }
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
+    public JPanel getBookInCategory() {
+        return bookInCategory;
+    }
+
+    public JPanel getContentCenter() {
+        return contentCenter;
+    }
+
+    public IntegratedSearch getIntegratedSearch() {
+        return integratedSearch;
+    }
+
+    public ScrollTable getScrollTable() {
+        return scrollTable;
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public JScrollPane getScrollTableCategory() {
+        return scrollTableCategory;
+    }
+
+    public FunctionToolBar getFunctionToolBar() {
+        return functionToolBar;
+    }
+
+    public PanelBorderRadius getFunctionBar() {
+        return functionBar;
+    }
+
+    public PanelBorderRadius getMain() {
+        return main;
+    }
+
+    public CategoryPanelModel getModel() {
+        return model;
+    }
+
+    public Color getBackgroundColor() {
+        return backgroundColor;
+    }
+
+
     public class CategoryPanelModel {
         List<CategoryDTO> listCategory = new ArrayList<>();
         List<BookDTO> listBooks = new ArrayList<>();
+
+        public CategoryPanelModel(List<CategoryDTO> listCategory, List<BookDTO> listBooks) {
+            this.listCategory = listCategory;
+            this.listBooks = listBooks;
+        }
+
+        public CategoryPanelModel() {
+        }
+
+        public List<CategoryDTO> getListCategory() {
+            return listCategory;
+        }
+
+        public void setListCategory(List<CategoryDTO> listCategory) {
+            this.listCategory = listCategory;
+        }
+
+        public List<BookDTO> getListBooks() {
+            return listBooks;
+        }
+
+        public void setListBooks(List<BookDTO> listBooks) {
+            this.listBooks = listBooks;
+        }
     }
 }

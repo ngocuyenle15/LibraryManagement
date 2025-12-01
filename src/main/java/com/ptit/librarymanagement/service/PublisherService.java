@@ -3,8 +3,8 @@ package com.ptit.librarymanagement.service;
 import com.ptit.librarymanagement.context.dao.DAOFactory;
 import com.ptit.librarymanagement.dao.BookDAO;
 import com.ptit.librarymanagement.dao.PublisherDAO;
-import com.ptit.librarymanagement.dto.BookDTO;
-import com.ptit.librarymanagement.dto.PublisherDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.PublisherDTO;
 
 import java.sql.Connection;
 import java.util.List;

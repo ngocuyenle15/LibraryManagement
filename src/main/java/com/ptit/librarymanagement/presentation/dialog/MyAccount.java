@@ -1,13 +1,13 @@
 package com.ptit.librarymanagement.presentation.dialog;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
-import lombok.Data;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-@Data
+
 public class MyAccount extends JPanel {
     private JPanel iconPanel;
     private JLabel iconLabel;
@@ -53,5 +53,23 @@ public class MyAccount extends JPanel {
 
     }
 
+    public JPanel getIconPanel() {
+        return iconPanel;
+    }
 
+    public JLabel getIconLabel() {
+        return iconLabel;
+    }
+
+    public JPanel getInfoPanel() {
+        return infoPanel;
+    }
+
+    public JLabel getUsernameLabel() {
+        return usernameLabel;
+    }
+
+    public JLabel getRoleLabel() {
+        return roleLabel;
+    }
 }

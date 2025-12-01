@@ -2,7 +2,6 @@ package com.ptit.librarymanagement.presentation.mainview;
 
 
 
-import com.ptit.librarymanagement.MainApplication;
 import com.ptit.librarymanagement.common.authentication.Session;
 import com.ptit.librarymanagement.common.dbutils.DbConnection;
 import com.ptit.librarymanagement.common.enums.Role;
@@ -10,9 +9,10 @@ import com.ptit.librarymanagement.common.validation.ValidationService;
 import com.ptit.librarymanagement.common.validation.ValidatorManager;
 import com.ptit.librarymanagement.common.validation.groupvalidation.ChangePassword;
 import com.ptit.librarymanagement.common.validation.groupvalidation.UpdateAccount;
+import com.ptit.librarymanagement.context.BaseApplicationContext;
 import com.ptit.librarymanagement.context.controller.ControllerFactory;
 import com.ptit.librarymanagement.context.view.ViewFactory;
-import com.ptit.librarymanagement.dto.AccountDTO;
+import com.ptit.librarymanagement.model.dto.AccountDTO;
 import com.ptit.librarymanagement.presentation.contentview.*;
 import com.ptit.librarymanagement.presentation.contentview.controller.BookController;
 import com.ptit.librarymanagement.presentation.dialog.AccountDialog;
@@ -21,7 +21,7 @@ import com.ptit.librarymanagement.presentation.mainview.main.component.ContentPa
 import com.ptit.librarymanagement.presentation.mainview.menu.ItemTaskbar;
 import com.ptit.librarymanagement.presentation.mainview.menu.MenuTaskbar;
 import com.ptit.librarymanagement.service.AccountService;
-import lombok.Data;
+
 
 
 import javax.swing.*;
@@ -31,7 +31,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-@Data
+
 public class MainFrame extends  JFrame {
     private HomePanel homePanel;
     private BookPanel bookPanel;
@@ -44,7 +44,6 @@ public class MainFrame extends  JFrame {
     private RecycleBinPanel recycleBinPanel;
     private StaffPanel staffPanel;
     private ContentPanel contentPanel;
-
     private MenuTaskbar menuTaskbar;
     private BookController bookController;
     private ControllerFactory controllerFactory;
@@ -215,8 +214,8 @@ public class MainFrame extends  JFrame {
                     Session.getSession().setAccount(null);
                     MainFrame.this.dispose();
                 }
-//                System.exit(0);
-                MainApplication.runApp();
+                BaseApplicationContext baseApplicationContext = new BaseApplicationContext();
+                baseApplicationContext.runApplication();
             }
         });
 
@@ -316,5 +315,123 @@ public class MainFrame extends  JFrame {
         contentPanel.setPanelDisplay("homePanel");
     }
 
+    public HomePanel getHomePanel() {
+        return homePanel;
+    }
 
+    public void setHomePanel(HomePanel homePanel) {
+        this.homePanel = homePanel;
+    }
+
+    public BookPanel getBookPanel() {
+        return bookPanel;
+    }
+
+    public void setBookPanel(BookPanel bookPanel) {
+        this.bookPanel = bookPanel;
+    }
+
+    public ReaderPanel getReaderPanel() {
+        return readerPanel;
+    }
+
+    public void setReaderPanel(ReaderPanel readerPanel) {
+        this.readerPanel = readerPanel;
+    }
+
+    public CategoryPanel getCategoryPanel() {
+        return categoryPanel;
+    }
+
+    public void setCategoryPanel(CategoryPanel categoryPanel) {
+        this.categoryPanel = categoryPanel;
+    }
+
+    public AuthorPanel getAuthorPanel() {
+        return authorPanel;
+    }
+
+    public void setAuthorPanel(AuthorPanel authorPanel) {
+        this.authorPanel = authorPanel;
+    }
+
+    public PublisherPanel getPublisherPanel() {
+        return publisherPanel;
+    }
+
+    public void setPublisherPanel(PublisherPanel publisherPanel) {
+        this.publisherPanel = publisherPanel;
+    }
+
+    public BookShelvePanel getBookShelvePanel() {
+        return bookShelvePanel;
+    }
+
+    public void setBookShelvePanel(BookShelvePanel bookShelvePanel) {
+        this.bookShelvePanel = bookShelvePanel;
+    }
+
+    public BorrowCardPanel getBorrowCardPanel() {
+        return borrowCardPanel;
+    }
+
+    public void setBorrowCardPanel(BorrowCardPanel borrowCardPanel) {
+        this.borrowCardPanel = borrowCardPanel;
+    }
+
+    public RecycleBinPanel getRecycleBinPanel() {
+        return recycleBinPanel;
+    }
+
+    public void setRecycleBinPanel(RecycleBinPanel recycleBinPanel) {
+        this.recycleBinPanel = recycleBinPanel;
+    }
+
+    public StaffPanel getStaffPanel() {
+        return staffPanel;
+    }
+
+    public void setStaffPanel(StaffPanel staffPanel) {
+        this.staffPanel = staffPanel;
+    }
+
+    public ContentPanel getContentPanel() {
+        return contentPanel;
+    }
+
+    public void setContentPanel(ContentPanel contentPanel) {
+        this.contentPanel = contentPanel;
+    }
+
+    public MenuTaskbar getMenuTaskbar() {
+        return menuTaskbar;
+    }
+
+    public void setMenuTaskbar(MenuTaskbar menuTaskbar) {
+        this.menuTaskbar = menuTaskbar;
+    }
+
+    public BookController getBookController() {
+        return bookController;
+    }
+
+    public void setBookController(BookController bookController) {
+        this.bookController = bookController;
+    }
+
+    public ControllerFactory getControllerFactory() {
+        return controllerFactory;
+    }
+
+    public void setControllerFactory(ControllerFactory controllerFactory) {
+        this.controllerFactory = controllerFactory;
+    }
+
+    public ViewFactory getViewFactory() {
+        return viewFactory;
+    }
+
+    public void setViewFactory(ViewFactory viewFactory) {
+        this.viewFactory = viewFactory;
+    }
 }

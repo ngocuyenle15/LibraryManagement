@@ -2,14 +2,14 @@ package com.ptit.librarymanagement.presentation.contentview.component;
 
 
 
-import lombok.Getter;
+
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@Getter
+
 public class FunctionToolBar extends JToolBar {
     private final HashMap<String, ButtonToolBar> buttons;
     public FunctionToolBar(HashMap<String, ButtonToolBar> buttons) {
@@ -29,5 +29,9 @@ public class FunctionToolBar extends JToolBar {
             this.add(m.getValue());
             m.getValue().setEnabled(false);
         }
+    }
+
+    public HashMap<String, ButtonToolBar> getButtons() {
+        return buttons;
     }
 }

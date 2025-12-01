@@ -4,24 +4,23 @@ package com.ptit.librarymanagement.presentation.dialog;
 
 import com.ptit.librarymanagement.common.dbutils.DbConnection;
 import com.ptit.librarymanagement.common.enums.BorrowState;
-import com.ptit.librarymanagement.dto.BookDTO;
-import com.ptit.librarymanagement.dto.BorrowCardDTO;
-import com.ptit.librarymanagement.dto.ReaderDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.BorrowCardDTO;
+import com.ptit.librarymanagement.model.dto.ReaderDTO;
 import com.ptit.librarymanagement.presentation.dialog.component.*;
 import com.ptit.librarymanagement.service.BorrowCardService;
-import lombok.Getter;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-@Getter
+
 public class BorrowCardDialog extends JDialog {
 
     private BorrowCardService borrowCardService = new BorrowCardService(DbConnection.getConnection());
@@ -120,7 +119,7 @@ public class BorrowCardDialog extends JDialog {
         genderPanel.add(lblGender);
         genderPanel.add(genderBox);
 
-        readerInput = new MultiSelectFieldPanel<ReaderDTO>("Độc giả",new ArrayList<>(), o -> String.format("id: %d - Họ và tên: %s %s",o.getId() ,o.getFirstName(), o.getLastName()));
+        readerInput = new MultiSelectFieldPanel<ReaderDTO>("Độc giả",new ArrayList<>(), o -> String.format("ID: %d - Họ và tên: %s",o.getId() ,o.getFullName()));
         readerInput.getField().setSingle(true);
 
         bookInput = new MultiSelectFieldPanel<BookDTO>("Sách",new ArrayList<>(), o -> String.format("id: %d - Tiêu đề: %s", o.getId(), o.getTitle()));
@@ -173,7 +172,59 @@ public class BorrowCardDialog extends JDialog {
         this.add(bottomPanel, BorderLayout.SOUTH);
     }
 
+    public BorrowCardService getBorrowCardService() {
+        return borrowCardService;
+    }
 
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
 
+    public JPanel getBottomPanel() {
+        return bottomPanel;
+    }
 
+    public ButtonCustom getCreateButton() {
+        return createButton;
+    }
+
+    public ButtonCustom getUpdateButton() {
+        return updateButton;
+    }
+
+    public ButtonCustom getCancelButton() {
+        return cancelButton;
+    }
+
+    public HeaderTitle getTitlePage() {
+        return titlePage;
+    }
+
+    public InputDate getStartDateInput() {
+        return startDateInput;
+    }
+
+    public InputDate getReturnDateInput() {
+        return returnDateInput;
+    }
+
+    public MultiSelectFieldPanel<ReaderDTO> getReaderInput() {
+        return readerInput;
+    }
+
+    public MultiSelectFieldPanel<BookDTO> getBookInput() {
+        return bookInput;
+    }
+
+    public InputForm getIdInput() {
+        return idInput;
+    }
+
+    public InputForm getStateInput() {
+        return stateInput;
+    }
+
+    public InputForm getPunishInput() {
+        return punishInput;
+    }
 }

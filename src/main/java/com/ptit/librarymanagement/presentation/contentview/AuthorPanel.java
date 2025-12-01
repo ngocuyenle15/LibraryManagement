@@ -2,14 +2,11 @@ package com.ptit.librarymanagement.presentation.contentview;
 
 
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
-import com.ptit.librarymanagement.dto.AuthorDTO;
-import com.ptit.librarymanagement.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.AuthorDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
 import com.ptit.librarymanagement.presentation.contentview.component.*;
 import com.ptit.librarymanagement.presentation.mainview.menu.ItemTaskbar;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -22,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.function.Supplier;
 
-@Getter
+
 public class AuthorPanel extends JPanel {
     private JPanel bookOfAuthor;
     private JPanel contentCenter;
@@ -127,12 +124,78 @@ public class AuthorPanel extends JPanel {
         bookOfAuthor.validate();
     }
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
+    public JPanel getBookOfAuthor() {
+        return bookOfAuthor;
+    }
+
+    public JPanel getContentCenter() {
+        return contentCenter;
+    }
+
+    public IntegratedSearch getIntegratedSearch() {
+        return integratedSearch;
+    }
+
+    public ScrollTable getScrollTable() {
+        return scrollTable;
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public JScrollPane getScrollTableAuthor() {
+        return scrollTableAuthor;
+    }
+
+    public FunctionToolBar getFunctionToolBar() {
+        return functionToolBar;
+    }
+
+    public PanelBorderRadius getFunctionBar() {
+        return functionBar;
+    }
+
+    public PanelBorderRadius getMain() {
+        return main;
+    }
+
+    public AuthorPanelModel getModel() {
+        return model;
+    }
+
+    public Color getBackgroundColor() {
+        return backgroundColor;
+    }
+
+
     public class AuthorPanelModel {
         List<AuthorDTO> listAuthors = new ArrayList<>();
         List<BookDTO> bookDTOS = new ArrayList<>();
+
+        public AuthorPanelModel(List<AuthorDTO> listAuthors, List<BookDTO> bookDTOS) {
+            this.listAuthors = listAuthors;
+            this.bookDTOS = bookDTOS;
+        }
+
+        public AuthorPanelModel() {
+        }
+
+        public List<AuthorDTO> getListAuthors() {
+            return listAuthors;
+        }
+
+        public List<BookDTO> getBookDTOS() {
+            return bookDTOS;
+        }
+
+        public void setListAuthors(List<AuthorDTO> listAuthors) {
+            this.listAuthors = listAuthors;
+        }
+
+        public void setBookDTOS(List<BookDTO> bookDTOS) {
+            this.bookDTOS = bookDTOS;
+        }
+
     }
 }

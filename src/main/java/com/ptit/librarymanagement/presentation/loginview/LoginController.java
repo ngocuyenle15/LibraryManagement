@@ -3,25 +3,21 @@ package com.ptit.librarymanagement.presentation.loginview;
 import com.ptit.librarymanagement.common.authentication.Session;
 
 import com.ptit.librarymanagement.common.dbutils.DbConnection;
-import com.ptit.librarymanagement.dto.AccountDTO;
+import com.ptit.librarymanagement.model.dto.AccountDTO;
 import com.ptit.librarymanagement.presentation.loginview.dialog.InputEmailForgotPassWordDialog;
 import com.ptit.librarymanagement.presentation.loginview.dialog.InputOtpForgotPassWordDialog;
 import com.ptit.librarymanagement.presentation.loginview.dialog.InputPassForgotPassWordDialog;
 import com.ptit.librarymanagement.service.AccountService;
 import com.ptit.librarymanagement.context.service.ServiceFactory;
-import lombok.Getter;
-import lombok.Setter;
+
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
 
-@Getter
-@Setter
+
 public class LoginController {
     private LoginFrame loginFrame;
     private Session session;
@@ -190,12 +186,35 @@ public class LoginController {
 
     }
 
+    public LoginFrame getLoginFrame() {
+        return loginFrame;
+    }
 
+    public void setLoginFrame(LoginFrame loginFrame) {
+        this.loginFrame = loginFrame;
+    }
 
+    public Session getSession() {
+        return session;
+    }
 
+    public void setSession(Session session) {
+        this.session = session;
+    }
 
+    public AccountService getAccountService() {
+        return accountService;
+    }
 
+    public void setAccountService(AccountService accountService) {
+        this.accountService = accountService;
+    }
 
+    public Runnable getRunnable() {
+        return runnable;
+    }
 
-
+    public void setRunnable(Runnable runnable) {
+        this.runnable = runnable;
+    }
 }

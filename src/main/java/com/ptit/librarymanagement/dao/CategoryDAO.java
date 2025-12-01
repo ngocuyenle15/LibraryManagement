@@ -1,17 +1,21 @@
 package com.ptit.librarymanagement.dao;
 
-import com.ptit.librarymanagement.dto.BookDTO;
-import com.ptit.librarymanagement.dto.CategoryDTO;
-import lombok.RequiredArgsConstructor;
+import com.ptit.librarymanagement.model.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.CategoryDTO;
+
 
 import java.sql.*;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
+
 public class CategoryDAO {
     private final Connection connection;
+
+    public CategoryDAO(Connection connection) {
+        this.connection = connection;
+    }
 
     public Optional<CategoryDTO> getCagCategoryById (Integer id) {
         try (PreparedStatement statement = connection.prepareStatement("select * from category where id = ?")) {

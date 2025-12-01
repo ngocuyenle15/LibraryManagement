@@ -25,9 +25,9 @@ public final class TransactionManager {
                     connection.commit();
                     return retVal;
                 } catch (Exception e) {
-                    System.out.println("Rollack transaction!");
+//                    System.out.println("Rollback transaction!");
                     connection.rollback();
-                    throw e;
+                    throw new TransactionException("Không thể thực hiện thao tác, RollBack Transaction", e);
                 }
             }
             return invocation.proceed();

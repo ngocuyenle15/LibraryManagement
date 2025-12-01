@@ -2,7 +2,7 @@ package com.ptit.librarymanagement.presentation.contentview.controller;
 
 import com.ptit.librarymanagement.common.dbutils.DbConnection;
 import com.ptit.librarymanagement.common.validation.ValidationService;
-import com.ptit.librarymanagement.dto.*;
+import com.ptit.librarymanagement.model.dto.*;
 import com.ptit.librarymanagement.presentation.dialog.CategoryDialog;
 import com.ptit.librarymanagement.presentation.dialog.AuthorDialog;
 import com.ptit.librarymanagement.presentation.dialog.BookDialog;
@@ -146,8 +146,6 @@ public class BookController  {
             this.bookPanel.loadDataInTable();
             paginationPanel.notifyPageChange();
         }
-
-
     }
 
     private void handlePagingForCommon(ActionEvent e) {

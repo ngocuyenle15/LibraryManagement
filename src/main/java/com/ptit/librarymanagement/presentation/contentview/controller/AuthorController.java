@@ -3,7 +3,7 @@ package com.ptit.librarymanagement.presentation.contentview.controller;
 import com.ptit.librarymanagement.common.dbutils.DbConnection;
 import com.ptit.librarymanagement.common.transactionmanager.TransactionManager;
 import com.ptit.librarymanagement.common.validation.ValidationService;
-import com.ptit.librarymanagement.dto.AuthorDTO;
+import com.ptit.librarymanagement.model.dto.AuthorDTO;
 import com.ptit.librarymanagement.presentation.dialog.AuthorDialog;
 import com.ptit.librarymanagement.presentation.contentview.AuthorPanel;
 import com.ptit.librarymanagement.service.AuthorService;

@@ -1,14 +1,13 @@
 package com.ptit.librarymanagement.presentation.contentview.component;
 
 
-import com.formdev.flatlaf.FlatLightLaf;
-import lombok.Getter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-@Getter
+
 public class PunishDialog extends JDialog {
 
     private JTextArea textArea;
@@ -73,10 +72,19 @@ public class PunishDialog extends JDialog {
         return btnSubmit;
     }
 
-    public static void main(String[] args) {
-        FlatLightLaf.setup();
-        SwingUtilities.invokeLater(() -> {
-            new PunishDialog(null).setVisible(true);
-        });
+    public JLabel getTitleLabel() {
+        return titleLabel;
+    }
+
+    public JPanel getCenterPanel() {
+        return centerPanel;
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public JPanel getBtnPanel() {
+        return btnPanel;
     }
 }

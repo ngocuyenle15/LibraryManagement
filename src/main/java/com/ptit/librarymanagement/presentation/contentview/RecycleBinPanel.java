@@ -2,13 +2,10 @@ package com.ptit.librarymanagement.presentation.contentview;
 
 import com.ptit.librarymanagement.common.dbutils.DbConnection;
 import com.ptit.librarymanagement.common.transactionmanager.TransactionManager;
-import com.ptit.librarymanagement.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
 import com.ptit.librarymanagement.presentation.contentview.component.*;
 import com.ptit.librarymanagement.service.BookService;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -19,7 +16,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@Data
+
 public class RecycleBinPanel extends JPanel {
     private JPanel pnlBorder1, pnlBorder2, pnlBorder3, pnlBorder4;
     private Color BackgroundColor = new Color(240, 247, 250);
@@ -124,15 +121,142 @@ public class RecycleBinPanel extends JPanel {
         this.add(pnlBorder4, BorderLayout.WEST);
     }
 
+    public JPanel getPnlBorder1() {
+        return this.pnlBorder1;
+    }
+
+    public JPanel getPnlBorder2() {
+        return this.pnlBorder2;
+    }
+
+    public JPanel getPnlBorder3() {
+        return this.pnlBorder3;
+    }
+
+    public JPanel getPnlBorder4() {
+        return this.pnlBorder4;
+    }
+
+    public Color getBackgroundColor() {
+        return this.BackgroundColor;
+    }
+
+    public ScrollTable getScrollTable() {
+        return this.scrollTable;
+    }
+
+    public PanelBorderRadius getFunctionBar() {
+        return this.functionBar;
+    }
+
+    public IntegratedSearch getIntegratedSearch() {
+        return this.integratedSearch;
+    }
+
+    public FunctionToolBar getFunctionToolBar() {
+        return this.functionToolBar;
+    }
+
+    public JPanel getContentCenter() {
+        return this.contentCenter;
+    }
+
+    public PanelBorderRadius getMain() {
+        return this.main;
+    }
+
+    public BookPanelModel getModel() {
+        return this.model;
+    }
+
+    public BookService getBookService() {
+        return this.bookService;
+    }
+
+    public PaginationPanel getPaginationPanel() {
+        return this.paginationPanel;
+    }
+
+    public void setPnlBorder1(JPanel pnlBorder1) {
+        this.pnlBorder1 = pnlBorder1;
+    }
+
+    public void setPnlBorder2(JPanel pnlBorder2) {
+        this.pnlBorder2 = pnlBorder2;
+    }
+
+    public void setPnlBorder3(JPanel pnlBorder3) {
+        this.pnlBorder3 = pnlBorder3;
+    }
+
+    public void setPnlBorder4(JPanel pnlBorder4) {
+        this.pnlBorder4 = pnlBorder4;
+    }
+
+    public void setBackgroundColor(Color BackgroundColor) {
+        this.BackgroundColor = BackgroundColor;
+    }
+
+    public void setScrollTable(ScrollTable scrollTable) {
+        this.scrollTable = scrollTable;
+    }
+
+    public void setFunctionBar(PanelBorderRadius functionBar) {
+        this.functionBar = functionBar;
+    }
+
+    public void setIntegratedSearch(IntegratedSearch integratedSearch) {
+        this.integratedSearch = integratedSearch;
+    }
+
+    public void setFunctionToolBar(FunctionToolBar functionToolBar) {
+        this.functionToolBar = functionToolBar;
+    }
+
+    public void setContentCenter(JPanel contentCenter) {
+        this.contentCenter = contentCenter;
+    }
+
+    public void setMain(PanelBorderRadius main) {
+        this.main = main;
+    }
+
+    public void setModel(BookPanelModel model) {
+        this.model = model;
+    }
+
+    public void setBookService(BookService bookService) {
+        this.bookService = bookService;
+    }
+
+    public void setPaginationPanel(PaginationPanel paginationPanel) {
+        this.paginationPanel = paginationPanel;
+    }
 
 
 
 
-    @Getter
-    @Setter
-    @NoArgsConstructor
+
+
+
+
     public static class BookPanelModel {
         private List <BookDTO> bookDTOS;
+
+        public BookPanelModel(List<BookDTO> bookDTOS) {
+            this.bookDTOS = bookDTOS;
+        }
+
+        public BookPanelModel() {
+        }
+
+        public List<BookDTO> getBookDTOS() {
+            return bookDTOS;
+        }
+
+        public void setBookDTOS(List<BookDTO> bookDTOS) {
+            this.bookDTOS = bookDTOS;
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 package com.ptit.librarymanagement.common.authentication;
 
-import com.ptit.librarymanagement.dto.AccountDTO;
-import lombok.Getter;
+import com.ptit.librarymanagement.model.dto.AccountDTO;
+
 
 public class Session {
     private static final Session SESSION;

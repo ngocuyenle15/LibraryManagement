@@ -2,14 +2,11 @@ package com.ptit.librarymanagement.presentation.contentview;
 
 
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
-import com.ptit.librarymanagement.dto.BookDTO;
-import com.ptit.librarymanagement.dto.ReaderDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.ReaderDTO;
 import com.ptit.librarymanagement.presentation.contentview.component.*;
 import com.ptit.librarymanagement.presentation.mainview.menu.ItemTaskbar;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -22,14 +19,14 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@Getter
+
 public class ReaderPanel extends JPanel {
     private JPanel bookInCategory;
     private JPanel contentCenter;
     private IntegratedSearch integratedSearch;
     private ScrollTable scrollTable;
     private JScrollPane scrollPane;
-    private JScrollPane scrollTableSanPham;
+    private JScrollPane scrollTableReader;
     private FunctionToolBar functionToolBar;
     private PanelBorderRadius functionBar, main;
 
@@ -79,9 +76,9 @@ public class ReaderPanel extends JPanel {
         contentCenter.add(functionBar, BorderLayout.NORTH);
 
         scrollTable = new ScrollTable(new String[]{"Id", "Họ và tên", "Giới tính", "Địa chỉ", "Ngày sinh", "Số điện thoại", "Email"});
-        scrollTableSanPham = new JScrollPane();
+        scrollTableReader = new JScrollPane();
 
-        scrollTableSanPham.setViewportView(scrollTable);
+        scrollTableReader.setViewportView(scrollTable);
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
         DefaultTableCellRenderer leftRenderer = new DefaultTableCellRenderer();
@@ -104,7 +101,7 @@ public class ReaderPanel extends JPanel {
         BoxLayout boxly = new BoxLayout(main, BoxLayout.Y_AXIS);
         main.setLayout(boxly);
         contentCenter.add(main, BorderLayout.CENTER);
-        main.add(scrollTableSanPham);
+        main.add(scrollTableReader);
 
         bookInCategory = new JPanel();
         bookInCategory.setBackground(backgroundColor);
@@ -122,8 +119,8 @@ public class ReaderPanel extends JPanel {
 
         DefaultTableModel tableModel = scrollTable.getTableModel();
         tableModel.setRowCount(0);
-        for (ReaderDTO categoryDTO : model.listReaders) {
-            tableModel.addRow(categoryDTO.getRow());
+        for (ReaderDTO reader : model.listReaders) {
+            tableModel.addRow(reader.getRow());
         }
     }
 
@@ -143,12 +140,77 @@ public class ReaderPanel extends JPanel {
         bookInCategory.validate();
     }
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
+    public JPanel getBookInCategory() {
+        return bookInCategory;
+    }
+
+    public JPanel getContentCenter() {
+        return contentCenter;
+    }
+
+    public IntegratedSearch getIntegratedSearch() {
+        return integratedSearch;
+    }
+
+    public ScrollTable getScrollTable() {
+        return scrollTable;
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public JScrollPane getScrollTableReader() {
+        return scrollTableReader;
+    }
+
+    public FunctionToolBar getFunctionToolBar() {
+        return functionToolBar;
+    }
+
+    public PanelBorderRadius getFunctionBar() {
+        return functionBar;
+    }
+
+    public PanelBorderRadius getMain() {
+        return main;
+    }
+
+    public ReaderPanelModel getModel() {
+        return model;
+    }
+
+    public Color getBackgroundColor() {
+        return backgroundColor;
+    }
+
+
     public class ReaderPanelModel {
         List<ReaderDTO> listReaders = new ArrayList<>();
         List<BookDTO> listBooks = new ArrayList<>();
+
+        public ReaderPanelModel(List<ReaderDTO> listReaders, List<BookDTO> listBooks) {
+            this.listReaders = listReaders;
+            this.listBooks = listBooks;
+        }
+
+        public ReaderPanelModel() {
+        }
+
+        public List<ReaderDTO> getListReaders() {
+            return listReaders;
+        }
+
+        public void setListReaders(List<ReaderDTO> listReaders) {
+            this.listReaders = listReaders;
+        }
+
+        public List<BookDTO> getListBooks() {
+            return listBooks;
+        }
+
+        public void setListBooks(List<BookDTO> listBooks) {
+            this.listBooks = listBooks;
+        }
     }
 }

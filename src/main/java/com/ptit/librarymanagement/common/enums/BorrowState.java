@@ -4,7 +4,6 @@ public enum BorrowState {
     BORROWING ("Đang mượn"),
     RETURNED ("Đã trả"),
     OVERDUE ("Quá hạn"),
-    OVERDUE_PUNISH ("Quá hạn - Phạt")
     ;
 
     private final String state;

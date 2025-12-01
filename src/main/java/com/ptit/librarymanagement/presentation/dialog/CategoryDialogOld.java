@@ -1,12 +1,12 @@
 package com.ptit.librarymanagement.presentation.dialog;
 
-import lombok.Getter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-@Getter
+
 public class CategoryDialogOld extends JDialog {
 
     private JPanel mainPanel, bottomPanel;
@@ -59,5 +59,31 @@ public class CategoryDialogOld extends JDialog {
 
     }
 
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
 
+    public JPanel getBottomPanel() {
+        return bottomPanel;
+    }
+
+    public JButton getCreateButton() {
+        return createButton;
+    }
+
+    public JButton getUpdateButton() {
+        return updateButton;
+    }
+
+    public JButton getCancelButton() {
+        return cancelButton;
+    }
+
+    public JTextField getCategoryField() {
+        return categoryField;
+    }
+
+    public boolean isUpdate() {
+        return isUpdate;
+    }
 }

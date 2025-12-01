@@ -4,7 +4,9 @@ import com.ptit.librarymanagement.common.paging.Pageable;
 import com.ptit.librarymanagement.common.transactionmanager.Transactional;
 import com.ptit.librarymanagement.context.dao.DAOFactory;
 import com.ptit.librarymanagement.dao.*;
-import com.ptit.librarymanagement.dto.*;
+import com.ptit.librarymanagement.model.dto.AuthorDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.CategoryDTO;
 
 import java.sql.Connection;
 import java.util.List;

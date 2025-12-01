@@ -3,13 +3,12 @@ package com.ptit.librarymanagement.presentation.dialog;
 
 
 import com.ptit.librarymanagement.common.enums.Gender;
-import com.ptit.librarymanagement.dto.AuthorDTO;
-import com.ptit.librarymanagement.dto.ReaderDTO;
+import com.ptit.librarymanagement.model.dto.ReaderDTO;
 import com.ptit.librarymanagement.presentation.dialog.component.ButtonCustom;
 import com.ptit.librarymanagement.presentation.dialog.component.HeaderTitle;
 import com.ptit.librarymanagement.presentation.dialog.component.InputDate;
 import com.ptit.librarymanagement.presentation.dialog.component.InputForm;
-import lombok.Getter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -18,7 +17,7 @@ import java.awt.event.ActionEvent;
 import java.util.Date;
 import java.util.Enumeration;
 
-@Getter
+
 public class ReaderDialog extends JDialog {
 
     private HeaderTitle titlePage;
@@ -190,6 +189,67 @@ public class ReaderDialog extends JDialog {
         female.setEnabled(false);
     }
 
+    public HeaderTitle getTitlePage() {
+        return titlePage;
+    }
 
+    public JPanel getMain() {
+        return main;
+    }
 
+    public JPanel getBottom() {
+        return bottom;
+    }
+
+    public ButtonCustom getCreateButton() {
+        return createButton;
+    }
+
+    public ButtonCustom getUpdateButton() {
+        return updateButton;
+    }
+
+    public ButtonCustom getCancelButton() {
+        return cancelButton;
+    }
+
+    public InputForm getFirstNameInput() {
+        return firstNameInput;
+    }
+
+    public InputForm getLastNameInput() {
+        return lastNameInput;
+    }
+
+    public InputForm getLocationsInput() {
+        return locationsInput;
+    }
+
+    public InputForm getPhoneInput() {
+        return phoneInput;
+    }
+
+    public InputForm getEmailInput() {
+        return emailInput;
+    }
+
+    public JTextField getIdInput() {
+        return idInput;
+    }
+
+    public ButtonGroup getGenderInput() {
+        return genderInput;
+    }
+
+    public JRadioButton getMale() {
+        return male;
+    }
+
+    public JRadioButton getFemale() {
+        return female;
+    }
+
+    public InputDate getDateInput() {
+        return dateInput;
+    }
 }

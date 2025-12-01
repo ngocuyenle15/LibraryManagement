@@ -4,7 +4,7 @@ package com.ptit.librarymanagement.service;
 import com.ptit.librarymanagement.common.mail.MailService;
 import com.ptit.librarymanagement.context.dao.DAOFactory;
 import com.ptit.librarymanagement.dao.AccountDAO;
-import com.ptit.librarymanagement.dto.AccountDTO;
+import com.ptit.librarymanagement.model.dto.AccountDTO;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.Connection;
@@ -45,7 +45,7 @@ public class AccountService {
 
     public void changePassword(String oldPass, AccountDTO account) {
         String passwordDB = accountDAO.getAccountById(account.getId())
-                .orElseThrow(() -> new RuntimeException("Khong tim thay account"))
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy"))
                 .getPassword();
 
         if (!BCrypt.checkpw(oldPass, passwordDB)) {

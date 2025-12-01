@@ -4,12 +4,11 @@ import com.ptit.librarymanagement.common.transactionmanager.Transactional;
 import com.ptit.librarymanagement.context.dao.DAOFactory;
 import com.ptit.librarymanagement.dao.AccountDAO;
 import com.ptit.librarymanagement.dao.StaffDAO;
-import com.ptit.librarymanagement.dto.AccountDTO;
-import com.ptit.librarymanagement.dto.StaffDTO;
+import com.ptit.librarymanagement.model.dto.AccountDTO;
+import com.ptit.librarymanagement.model.dto.StaffDTO;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.Connection;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 public class StaffService {

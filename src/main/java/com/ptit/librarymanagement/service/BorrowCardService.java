@@ -1,14 +1,12 @@
 package com.ptit.librarymanagement.service;
 
-import com.ptit.librarymanagement.common.dbutils.DbConnection;
 import com.ptit.librarymanagement.common.transactionmanager.Transactional;
-import com.ptit.librarymanagement.context.dao.BaseDAOFactory;
 import com.ptit.librarymanagement.context.dao.DAOFactory;
 import com.ptit.librarymanagement.dao.BookDAO;
 import com.ptit.librarymanagement.dao.BorrowCardDAO;
 import com.ptit.librarymanagement.dao.ReaderDAO;
-import com.ptit.librarymanagement.dto.BookDTO;
-import com.ptit.librarymanagement.dto.BorrowCardDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.BorrowCardDTO;
 import com.ptit.librarymanagement.common.enums.BorrowState;
 
 import java.sql.Connection;

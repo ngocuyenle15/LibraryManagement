@@ -1,24 +1,26 @@
 package com.ptit.librarymanagement.dao;
 
-import com.ptit.librarymanagement.dto.BookDTO;
-import com.ptit.librarymanagement.dto.BorrowCardDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.BorrowCardDTO;
 
-import com.ptit.librarymanagement.dto.ReaderDTO;
+import com.ptit.librarymanagement.model.dto.ReaderDTO;
 import com.ptit.librarymanagement.common.enums.BorrowState;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequiredArgsConstructor
-@Getter
+
 public class BorrowCardDAO {
 
     private final Connection connection;
 
-//get reader by id
+    public BorrowCardDAO(Connection connection) {
+        this.connection = connection;
+    }
+
+    //get reader by id
     public List<BorrowCardDTO> getBorrowCardByReader (ReaderDTO reader) {
         List<BorrowCardDTO> list = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement("select * from borrow_card where reader_id = ?")) {

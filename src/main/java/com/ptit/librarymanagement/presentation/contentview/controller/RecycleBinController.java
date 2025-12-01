@@ -1,7 +1,7 @@
 package com.ptit.librarymanagement.presentation.contentview.controller;
 
 import com.ptit.librarymanagement.common.dbutils.DbConnection;
-import com.ptit.librarymanagement.dto.*;
+import com.ptit.librarymanagement.model.dto.BookDTO;
 import com.ptit.librarymanagement.presentation.contentview.RecycleBinPanel;
 import com.ptit.librarymanagement.service.*;
 import com.ptit.librarymanagement.context.service.ServiceFactory;

@@ -1,7 +1,7 @@
 package com.ptit.librarymanagement.presentation.contentview.controller;
 
 import com.ptit.librarymanagement.common.validation.ValidationService;
-import com.ptit.librarymanagement.dto.ReaderDTO;
+import com.ptit.librarymanagement.model.dto.ReaderDTO;
 import com.ptit.librarymanagement.presentation.dialog.ReaderDialog;
 import com.ptit.librarymanagement.presentation.contentview.ReaderPanel;
 import com.ptit.librarymanagement.service.BookService;

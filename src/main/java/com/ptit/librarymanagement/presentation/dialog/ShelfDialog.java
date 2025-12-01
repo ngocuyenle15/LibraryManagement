@@ -1,16 +1,16 @@
 package com.ptit.librarymanagement.presentation.dialog;
 
-import com.ptit.librarymanagement.dto.ShelfDTO;
+import com.ptit.librarymanagement.model.dto.ShelfDTO;
 import com.ptit.librarymanagement.presentation.dialog.component.ButtonCustom;
 import com.ptit.librarymanagement.presentation.dialog.component.HeaderTitle;
 import com.ptit.librarymanagement.presentation.dialog.component.InputForm;
-import lombok.Data;
+
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-@Data
+
 public class ShelfDialog extends JDialog {
 
     private HeaderTitle titlePage;
@@ -95,5 +95,39 @@ public class ShelfDialog extends JDialog {
         this.add(bottomPanel, BorderLayout.SOUTH);
     }
 
+    public HeaderTitle getTitlePage() {
+        return titlePage;
+    }
 
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
+
+    public JPanel getBottomPanel() {
+        return bottomPanel;
+    }
+
+    public ButtonCustom getCreateButton() {
+        return createButton;
+    }
+
+    public ButtonCustom getUpdateButton() {
+        return updateButton;
+    }
+
+    public ButtonCustom getCancelButton() {
+        return cancelButton;
+    }
+
+    public InputForm getShelfNameInput() {
+        return shelfNameInput;
+    }
+
+    public InputForm getLocationInput() {
+        return locationInput;
+    }
+
+    public JTextField getIdInput() {
+        return idInput;
+    }
 }

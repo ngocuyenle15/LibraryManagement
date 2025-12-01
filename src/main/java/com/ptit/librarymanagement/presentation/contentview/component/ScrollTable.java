@@ -2,8 +2,7 @@ package com.ptit.librarymanagement.presentation.contentview.component;
 
 
 
-import lombok.Getter;
-import lombok.Setter;
+
 
 import javax.swing.*;
 import javax.swing.table.*;
@@ -11,8 +10,7 @@ import java.awt.*;
 
 
 // refactor lại sau
-@Getter
-@Setter
+
 public class ScrollTable extends JScrollPane {
     private JTable table;
     private String[] columnName;
@@ -68,5 +66,43 @@ public class ScrollTable extends JScrollPane {
         this.table.setDefaultEditor(Object.class, null);
     }
 
+    public JTable getTable() {
+        return table;
+    }
 
+    public void setTable(JTable table) {
+        this.table = table;
+    }
+
+    public String[] getColumnName() {
+        return columnName;
+    }
+
+    public void setColumnName(String[] columnName) {
+        this.columnName = columnName;
+    }
+
+    public TableColumnModel getColumnModel() {
+        return columnModel;
+    }
+
+    public void setColumnModel(TableColumnModel columnModel) {
+        this.columnModel = columnModel;
+    }
+
+    public DefaultTableModel getTableModel() {
+        return tableModel;
+    }
+
+    public void setTableModel(DefaultTableModel tableModel) {
+        this.tableModel = tableModel;
+    }
+
+    public DefaultTableCellRenderer getCenterRenderer() {
+        return centerRenderer;
+    }
+
+    public void setCenterRenderer(DefaultTableCellRenderer centerRenderer) {
+        this.centerRenderer = centerRenderer;
+    }
 }

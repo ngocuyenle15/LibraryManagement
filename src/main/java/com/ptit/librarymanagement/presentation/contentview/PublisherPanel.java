@@ -2,14 +2,11 @@ package com.ptit.librarymanagement.presentation.contentview;
 
 
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
-import com.ptit.librarymanagement.dto.BookDTO;
-import com.ptit.librarymanagement.dto.PublisherDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.PublisherDTO;
 import com.ptit.librarymanagement.presentation.contentview.component.*;
 import com.ptit.librarymanagement.presentation.mainview.menu.ItemTaskbar;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -22,7 +19,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@Getter
+
 public class PublisherPanel extends JPanel {
     private JPanel bookInPublisher;
     private JPanel contentCenter;
@@ -40,6 +37,50 @@ public class PublisherPanel extends JPanel {
     public PublisherPanel() {
         model = new PublisherPanelModel();
         initComponent();
+    }
+
+    public JPanel getBookInPublisher() {
+        return bookInPublisher;
+    }
+
+    public JPanel getContentCenter() {
+        return contentCenter;
+    }
+
+    public IntegratedSearch getIntegratedSearch() {
+        return integratedSearch;
+    }
+
+    public ScrollTable getScrollTable() {
+        return scrollTable;
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public JScrollPane getScrollTablePublisher() {
+        return scrollTablePublisher;
+    }
+
+    public FunctionToolBar getFunctionToolBar() {
+        return functionToolBar;
+    }
+
+    public PanelBorderRadius getFunctionBar() {
+        return functionBar;
+    }
+
+    public PanelBorderRadius getMain() {
+        return main;
+    }
+
+    public PublisherPanelModel getModel() {
+        return model;
+    }
+
+    public Color getBackgroundColor() {
+        return backgroundColor;
     }
 
     private void initComponent () {
@@ -140,12 +181,33 @@ public class PublisherPanel extends JPanel {
         bookInPublisher.validate();
     }
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
+
     public class PublisherPanelModel {
         List<PublisherDTO> publisherDTOS = new ArrayList<>();
         List<BookDTO> bookDTOS = new ArrayList<>();
+
+        public PublisherPanelModel(List<PublisherDTO> publisherDTOS, List<BookDTO> bookDTOS) {
+            this.publisherDTOS = publisherDTOS;
+            this.bookDTOS = bookDTOS;
+        }
+
+        public PublisherPanelModel() {
+        }
+
+        public List<PublisherDTO> getPublisherDTOS() {
+            return publisherDTOS;
+        }
+
+        public void setPublisherDTOS(List<PublisherDTO> publisherDTOS) {
+            this.publisherDTOS = publisherDTOS;
+        }
+
+        public List<BookDTO> getBookDTOS() {
+            return bookDTOS;
+        }
+
+        public void setBookDTOS(List<BookDTO> bookDTOS) {
+            this.bookDTOS = bookDTOS;
+        }
     }
 }

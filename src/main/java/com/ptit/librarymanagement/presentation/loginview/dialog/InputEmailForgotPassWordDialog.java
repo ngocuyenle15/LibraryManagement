@@ -5,14 +5,14 @@ package com.ptit.librarymanagement.presentation.loginview.dialog;
 import com.ptit.librarymanagement.presentation.dialog.component.ButtonCustom;
 import com.ptit.librarymanagement.presentation.dialog.component.HeaderTitle;
 import com.ptit.librarymanagement.presentation.dialog.component.InputForm;
-import lombok.Getter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-@Getter
+
 public class InputEmailForgotPassWordDialog extends JDialog {
     private HeaderTitle titlePage;
     private JPanel mainPanel, bottomPanel;
@@ -72,7 +72,31 @@ public class InputEmailForgotPassWordDialog extends JDialog {
         this.add(bottomPanel, BorderLayout.SOUTH);
     }
 
+    public HeaderTitle getTitlePage() {
+        return titlePage;
+    }
 
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
 
+    public JPanel getBottomPanel() {
+        return bottomPanel;
+    }
 
+    public ButtonCustom getConfirmInput() {
+        return confirmInput;
+    }
+
+    public ButtonCustom getUpdateButton() {
+        return updateButton;
+    }
+
+    public ButtonCustom getCancelButton() {
+        return cancelButton;
+    }
+
+    public InputForm getEmailInput() {
+        return emailInput;
+    }
 }

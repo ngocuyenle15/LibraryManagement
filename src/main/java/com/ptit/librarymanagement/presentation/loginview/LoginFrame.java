@@ -1,12 +1,9 @@
 package com.ptit.librarymanagement.presentation.loginview;
 
 import com.formdev.flatlaf.FlatClientProperties;
-import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.formdev.flatlaf.FlatLaf;
-import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
-import com.ptit.librarymanagement.dto.AccountDTO;
-import lombok.Data;
+import com.ptit.librarymanagement.model.dto.AccountDTO;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -14,7 +11,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-@Data
+
 public class LoginFrame extends JFrame {
     private JPanel mainPanel, loginPanel;
     private JLabel lblImage, lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7;
@@ -98,5 +95,107 @@ public class LoginFrame extends JFrame {
         });
     }
 
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
 
+    public void setMainPanel(JPanel mainPanel) {
+        this.mainPanel = mainPanel;
+    }
+
+    public JPanel getLoginPanel() {
+        return loginPanel;
+    }
+
+    public void setLoginPanel(JPanel loginPanel) {
+        this.loginPanel = loginPanel;
+    }
+
+    public JLabel getLblImage() {
+        return lblImage;
+    }
+
+    public void setLblImage(JLabel lblImage) {
+        this.lblImage = lblImage;
+    }
+
+    public JLabel getLbl1() {
+        return lbl1;
+    }
+
+    public void setLbl1(JLabel lbl1) {
+        this.lbl1 = lbl1;
+    }
+
+    public JLabel getLbl2() {
+        return lbl2;
+    }
+
+    public void setLbl2(JLabel lbl2) {
+        this.lbl2 = lbl2;
+    }
+
+    public JLabel getLbl3() {
+        return lbl3;
+    }
+
+    public void setLbl3(JLabel lbl3) {
+        this.lbl3 = lbl3;
+    }
+
+    public JLabel getLbl4() {
+        return lbl4;
+    }
+
+    public void setLbl4(JLabel lbl4) {
+        this.lbl4 = lbl4;
+    }
+
+    public JLabel getLbl5() {
+        return lbl5;
+    }
+
+    public void setLbl5(JLabel lbl5) {
+        this.lbl5 = lbl5;
+    }
+
+    public JLabel getLbl6() {
+        return lbl6;
+    }
+
+    public void setLbl6(JLabel lbl6) {
+        this.lbl6 = lbl6;
+    }
+
+    public JLabel getLbl7() {
+        return lbl7;
+    }
+
+    public void setLbl7(JLabel lbl7) {
+        this.lbl7 = lbl7;
+    }
+
+    public InputFormPanel getUserNameInput() {
+        return userNameInput;
+    }
+
+    public void setUserNameInput(InputFormPanel userNameInput) {
+        this.userNameInput = userNameInput;
+    }
+
+    public InputFormPanel getPasswordInput() {
+        return passwordInput;
+    }
+
+    public void setPasswordInput(InputFormPanel passwordInput) {
+        this.passwordInput = passwordInput;
+    }
+
+    public Color getFontColor() {
+        return FontColor;
+    }
+
+    public void setFontColor(Color fontColor) {
+        FontColor = fontColor;
+    }
 }

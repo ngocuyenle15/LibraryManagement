@@ -1,9 +1,9 @@
 package com.ptit.librarymanagement.presentation.contentview;
 
 import com.ptit.librarymanagement.common.paging.Pageable;
-import com.ptit.librarymanagement.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
 import com.ptit.librarymanagement.presentation.contentview.component.*;
-import lombok.*;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -13,7 +13,7 @@ import java.util.*;
 import java.util.List;
 import java.util.function.Supplier;
 
-@Data
+
 public class BookPanel extends JPanel {
     private JPanel pnlBorder1, pnlBorder2, pnlBorder3, pnlBorder4;
     private Color backgroundColor = new Color(240, 247, 250);
@@ -35,6 +35,110 @@ public class BookPanel extends JPanel {
         this.add(scrollTable, BorderLayout.CENTER);
         this.add(paginationPanel, BorderLayout.SOUTH);
     }
+    public JPanel getPnlBorder1() {
+        return this.pnlBorder1;
+    }
+
+    public JPanel getPnlBorder2() {
+        return this.pnlBorder2;
+    }
+
+    public JPanel getPnlBorder3() {
+        return this.pnlBorder3;
+    }
+
+    public JPanel getPnlBorder4() {
+        return this.pnlBorder4;
+    }
+
+    public Color getBackgroundColor() {
+        return this.backgroundColor;
+    }
+
+    public ScrollTable getScrollTable() {
+        return this.scrollTable;
+    }
+
+    public PanelBorderRadius getFunctionBar() {
+        return this.functionBar;
+    }
+
+    public IntegratedSearch getIntegratedSearch() {
+        return this.integratedSearch;
+    }
+
+    public FunctionToolBar getFunctionToolBar() {
+        return this.functionToolBar;
+    }
+
+    public JPanel getContentCenter() {
+        return this.contentCenter;
+    }
+
+    public PanelBorderRadius getMain() {
+        return this.main;
+    }
+
+    public BookPanelModel getModel() {
+        return this.model;
+    }
+
+    public PaginationPanel getPaginationPanel() {
+        return this.paginationPanel;
+    }
+
+    public void setPnlBorder1(JPanel pnlBorder1) {
+        this.pnlBorder1 = pnlBorder1;
+    }
+
+    public void setPnlBorder2(JPanel pnlBorder2) {
+        this.pnlBorder2 = pnlBorder2;
+    }
+
+    public void setPnlBorder3(JPanel pnlBorder3) {
+        this.pnlBorder3 = pnlBorder3;
+    }
+
+    public void setPnlBorder4(JPanel pnlBorder4) {
+        this.pnlBorder4 = pnlBorder4;
+    }
+
+    public void setBackgroundColor(Color backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+
+    public void setScrollTable(ScrollTable scrollTable) {
+        this.scrollTable = scrollTable;
+    }
+
+    public void setFunctionBar(PanelBorderRadius functionBar) {
+        this.functionBar = functionBar;
+    }
+
+    public void setIntegratedSearch(IntegratedSearch integratedSearch) {
+        this.integratedSearch = integratedSearch;
+    }
+
+    public void setFunctionToolBar(FunctionToolBar functionToolBar) {
+        this.functionToolBar = functionToolBar;
+    }
+
+    public void setContentCenter(JPanel contentCenter) {
+        this.contentCenter = contentCenter;
+    }
+
+    public void setMain(PanelBorderRadius main) {
+        this.main = main;
+    }
+
+    public void setModel(BookPanelModel model) {
+        this.model = model;
+    }
+
+    public void setPaginationPanel(PaginationPanel paginationPanel) {
+        this.paginationPanel = paginationPanel;
+    }
+
 
     private void initComponent() {
         this.setBackground(backgroundColor);
@@ -117,12 +221,34 @@ public class BookPanel extends JPanel {
     }
 
 
-    @Getter
-    @Setter
-    @NoArgsConstructor
+
     public static class BookPanelModel {
         private List <BookDTO> listBooks;
         private Pageable pageable = new Pageable();
+
+        public BookPanelModel(List<BookDTO> listBooks, Pageable pageable) {
+            this.listBooks = listBooks;
+            this.pageable = pageable;
+        }
+
+        public BookPanelModel() {
+        }
+
+        public List<BookDTO> getListBooks() {
+            return listBooks;
+        }
+
+        public void setListBooks(List<BookDTO> listBooks) {
+            this.listBooks = listBooks;
+        }
+
+        public Pageable getPageable() {
+            return pageable;
+        }
+
+        public void setPageable(Pageable pageable) {
+            this.pageable = pageable;
+        }
     }
 
 }

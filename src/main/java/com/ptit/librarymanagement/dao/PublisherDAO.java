@@ -1,17 +1,20 @@
 package com.ptit.librarymanagement.dao;
 
-import com.ptit.librarymanagement.dto.BookDTO;
-import com.ptit.librarymanagement.dto.PublisherDTO;
-import lombok.RequiredArgsConstructor;
+import com.ptit.librarymanagement.model.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.PublisherDTO;
+
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@RequiredArgsConstructor
 public class PublisherDAO {
     private final Connection connection;
+
+    public PublisherDAO(Connection connection) {
+        this.connection = connection;
+    }
 
     public Optional<PublisherDTO> getPublisherByBook(BookDTO bookDTO) {
 

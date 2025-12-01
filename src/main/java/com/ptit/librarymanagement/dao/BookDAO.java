@@ -1,9 +1,8 @@
 package com.ptit.librarymanagement.dao;
 
 import com.ptit.librarymanagement.common.paging.Pageable;
-import com.ptit.librarymanagement.dto.*;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import com.ptit.librarymanagement.model.dto.*;
+
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,10 +10,14 @@ import java.util.List;
 import java.util.Optional;
 
 
-@RequiredArgsConstructor
-@Getter
+
 public class BookDAO {
     private final Connection connection;
+
+    public BookDAO(Connection connection) {
+        this.connection = connection;
+    }
+
     public Optional<BookDTO> getBookById (Integer id) {
         try (PreparedStatement statement = connection
                 .prepareStatement("select * from book where id = ? and `delete` = false")) {
@@ -447,7 +450,7 @@ public class BookDAO {
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setBoolean(1, delete);
             statement.setInt(2, pageable.getPageSize());
-            statement.setInt(3, (pageable.getCurrenPage() - 1) * pageable.getPageSize());
+            statement.setInt(3, (pageable.getCurrentPage() - 1) * pageable.getPageSize());
 
             try (ResultSet rs = statement.executeQuery()) {
                 while (rs.next()) {
@@ -537,7 +540,7 @@ public class BookDAO {
             statement.setObject(4, book.getTitle());
             statement.setBoolean(5, delete);
             statement.setInt(6, pageable.getPageSize());
-            statement.setInt(7, (pageable.getCurrenPage() - 1) * pageable.getPageSize());
+            statement.setInt(7, (pageable.getCurrentPage() - 1) * pageable.getPageSize());
             try (ResultSet rs = statement.executeQuery()) {
                 while (rs.next()) {
                     result.add(

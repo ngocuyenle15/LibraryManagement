@@ -4,7 +4,7 @@
  */
 package com.ptit.librarymanagement.presentation.dialog.component;
 
-import lombok.Getter;
+
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -21,7 +21,7 @@ import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@Getter
+
 
 public class InputImage extends JPanel implements ActionListener {
     private JButton btnChooseImg;
@@ -112,4 +112,15 @@ public class InputImage extends JPanel implements ActionListener {
         }
     }
 
+    public JButton getBtnChooseImg() {
+        return btnChooseImg;
+    }
+
+    public JLabel getImg() {
+        return img;
+    }
+
+    public String getUrl_img() {
+        return url_img;
+    }
 }

@@ -2,14 +2,10 @@ package com.ptit.librarymanagement.presentation.contentview;
 
 
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
-import com.ptit.librarymanagement.dto.BookDTO;
-import com.ptit.librarymanagement.dto.ShelfDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.ShelfDTO;
 import com.ptit.librarymanagement.presentation.contentview.component.*;
 import com.ptit.librarymanagement.presentation.mainview.menu.ItemTaskbar;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -23,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.function.Supplier;
 
-@Getter
+
 public class BookShelvePanel extends JPanel {
     private JPanel bookOnShelf;
     private JPanel contentCenter;
@@ -127,12 +123,77 @@ public class BookShelvePanel extends JPanel {
         bookOnShelf.validate();
     }
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
+    public JPanel getBookOnShelf() {
+        return bookOnShelf;
+    }
+
+    public JPanel getContentCenter() {
+        return contentCenter;
+    }
+
+    public IntegratedSearch getIntegratedSearch() {
+        return integratedSearch;
+    }
+
+    public ScrollTable getScrollTable() {
+        return scrollTable;
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public JScrollPane getScrollTableShelf() {
+        return scrollTableShelf;
+    }
+
+    public FunctionToolBar getFunctionToolBar() {
+        return functionToolBar;
+    }
+
+    public PanelBorderRadius getFunctionBar() {
+        return functionBar;
+    }
+
+    public PanelBorderRadius getMain() {
+        return main;
+    }
+
+    public BookShelvePanelModel getModel() {
+        return model;
+    }
+
+    public Color getBackgroundColor() {
+        return backgroundColor;
+    }
+
+
     public class BookShelvePanelModel {
         List<ShelfDTO> listShelf = new ArrayList<>();
         List<BookDTO> listBooks = new ArrayList<>();
+
+        public BookShelvePanelModel(List<ShelfDTO> listShelf, List<BookDTO> listBooks) {
+            this.listShelf = listShelf;
+            this.listBooks = listBooks;
+        }
+
+        public BookShelvePanelModel() {
+        }
+
+        public List<ShelfDTO> getListShelf() {
+            return listShelf;
+        }
+
+        public void setListShelf(List<ShelfDTO> listShelf) {
+            this.listShelf = listShelf;
+        }
+
+        public List<BookDTO> getListBooks() {
+            return listBooks;
+        }
+
+        public void setListBooks(List<BookDTO> listBooks) {
+            this.listBooks = listBooks;
+        }
     }
 }

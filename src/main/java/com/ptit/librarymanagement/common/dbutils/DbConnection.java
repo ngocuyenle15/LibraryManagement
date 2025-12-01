@@ -8,11 +8,10 @@ import java.sql.SQLException;
 // singleton pattern
 public final class DbConnection {
     private static final Connection CONNECTION;
-    private static String userName = "root";
-    private static String password = "123456";
-    private static String driverClassName = "com.mysql.cj.jdbc.Driver";
-    private static String url = "jdbc:mysql://localhost:3306/library_management";
-//    private static String url = "jdbc:mysql://localhost:3306/dbk";
+    private static String userName = System.getProperty("application.database.username");
+    private static String password = System.getProperty("application.database.password");
+    private static String driverClassName = System.getProperty("application.database.driver-class-name");
+    private static String url = System.getProperty("application.database.url");
     private DbConnection() {}
     static {
         try {

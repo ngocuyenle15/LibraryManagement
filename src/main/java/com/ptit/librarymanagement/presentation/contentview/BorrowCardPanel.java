@@ -2,14 +2,11 @@ package com.ptit.librarymanagement.presentation.contentview;
 
 
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
-import com.ptit.librarymanagement.dto.BookDTO;
-import com.ptit.librarymanagement.dto.BorrowCardDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.BorrowCardDTO;
 import com.ptit.librarymanagement.presentation.contentview.component.*;
 import com.ptit.librarymanagement.presentation.mainview.menu.ItemTaskbar;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -23,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.function.Supplier;
 
-@Getter
+
 public class BorrowCardPanel extends JPanel {
     private JPanel bookInBorrowCard;
     private JPanel contentCenter;
@@ -146,12 +143,81 @@ public class BorrowCardPanel extends JPanel {
         bookInBorrowCard.validate();
     }
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
+    public JPanel getBookInBorrowCard() {
+        return bookInBorrowCard;
+    }
+
+    public JPanel getContentCenter() {
+        return contentCenter;
+    }
+
+    public IntegratedSearch getIntegratedSearch() {
+        return integratedSearch;
+    }
+
+    public ScrollTable getScrollTable() {
+        return scrollTable;
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public JScrollPane getScrollTableBorrowCard() {
+        return scrollTableBorrowCard;
+    }
+
+    public FunctionToolBar getFunctionToolBar() {
+        return functionToolBar;
+    }
+
+    public PanelBorderRadius getFunctionBar() {
+        return functionBar;
+    }
+
+    public PanelBorderRadius getMain() {
+        return main;
+    }
+
+    public BorrowCardPanelModel getModel() {
+        return model;
+    }
+
+    public Color getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public MenuSelectionViewBorrowCardPanel getSelectionView() {
+        return selectionView;
+    }
+
+
     public class BorrowCardPanelModel {
         List<BorrowCardDTO> listBorrowCards = new ArrayList<>();
         List<BookDTO> listBooks = new ArrayList<>();
+
+        public BorrowCardPanelModel(List<BorrowCardDTO> listBorrowCards, List<BookDTO> listBooks) {
+            this.listBorrowCards = listBorrowCards;
+            this.listBooks = listBooks;
+        }
+
+        public BorrowCardPanelModel() {
+        }
+
+        public List<BorrowCardDTO> getListBorrowCards() {
+            return listBorrowCards;
+        }
+
+        public void setListBorrowCards(List<BorrowCardDTO> listBorrowCards) {
+            this.listBorrowCards = listBorrowCards;
+        }
+
+        public List<BookDTO> getListBooks() {
+            return listBooks;
+        }
+
+        public void setListBooks(List<BookDTO> listBooks) {
+            this.listBooks = listBooks;
+        }
     }
 }

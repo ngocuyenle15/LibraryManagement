@@ -1,18 +1,22 @@
 package com.ptit.librarymanagement.dao;
 
-import com.ptit.librarymanagement.dto.BookDTO;
-import com.ptit.librarymanagement.dto.PublisherDTO; // Cần thiết để tạo BookDTO
-import com.ptit.librarymanagement.dto.ShelfDTO;
-import lombok.RequiredArgsConstructor;
+import com.ptit.librarymanagement.model.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.PublisherDTO; // Cần thiết để tạo BookDTO
+import com.ptit.librarymanagement.model.dto.ShelfDTO;
+
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@RequiredArgsConstructor
+
 public class ShelfDAO {
     private final Connection connection;
+
+    public ShelfDAO(Connection connection) {
+        this.connection = connection;
+    }
 
     public void deleteBookInShelf (BookDTO bookDTO) {
         try (PreparedStatement statement = connection.prepareStatement("delete from shelf_book where book_id = ?")) {

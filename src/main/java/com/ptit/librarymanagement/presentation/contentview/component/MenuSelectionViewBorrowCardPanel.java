@@ -1,8 +1,5 @@
 package com.ptit.librarymanagement.presentation.contentview.component;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.swing.*;
 import java.awt.*;

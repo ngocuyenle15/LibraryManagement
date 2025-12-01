@@ -7,8 +7,8 @@ import java.util.Properties;
 
 public class MailService {
     private static MailService mailService;
-    private final String username = "ngocuyenle18@gmail.com";
-    private final String password = "bexi hwqq egbi yfzk";
+    private final String username = System.getProperty("application.mail.email");
+    private final String password = System.getProperty("application.mail.pass");
     private final Session session;
     static {
         mailService = new MailService();

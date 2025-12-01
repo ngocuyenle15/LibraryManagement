@@ -6,8 +6,8 @@ import com.ptit.librarymanagement.context.dao.DAOFactory;
 import com.ptit.librarymanagement.dao.BookDAO;
 import com.ptit.librarymanagement.dao.BorrowCardDAO;
 import com.ptit.librarymanagement.dao.ReaderDAO;
-import com.ptit.librarymanagement.dto.BorrowCardDTO;
-import com.ptit.librarymanagement.dto.ReaderDTO;
+import com.ptit.librarymanagement.model.dto.BorrowCardDTO;
+import com.ptit.librarymanagement.model.dto.ReaderDTO;
 
 import java.sql.Connection;
 import java.util.List;

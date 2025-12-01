@@ -4,7 +4,7 @@ import com.ptit.librarymanagement.common.dbutils.DbConnection;
 import com.ptit.librarymanagement.common.transactionmanager.TransactionManager;
 import com.ptit.librarymanagement.common.validation.ValidationService;
 import com.ptit.librarymanagement.common.validation.ValidatorManager;
-import com.ptit.librarymanagement.dto.CategoryDTO;
+import com.ptit.librarymanagement.model.dto.CategoryDTO;
 import com.ptit.librarymanagement.presentation.dialog.CategoryDialog;
 import com.ptit.librarymanagement.presentation.dialog.CategoryDialogOld;
 import com.ptit.librarymanagement.presentation.contentview.CategoryPanel;

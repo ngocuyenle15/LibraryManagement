@@ -3,7 +3,7 @@ package com.ptit.librarymanagement.presentation.contentview.controller;
 import com.ptit.librarymanagement.common.dbutils.DbConnection;
 import com.ptit.librarymanagement.common.transactionmanager.TransactionManager;
 import com.ptit.librarymanagement.common.validation.ValidationService;
-import com.ptit.librarymanagement.dto.ShelfDTO;
+import com.ptit.librarymanagement.model.dto.ShelfDTO;
 import com.ptit.librarymanagement.presentation.dialog.ShelfDialog;
 import com.ptit.librarymanagement.presentation.contentview.BookShelvePanel;
 import com.ptit.librarymanagement.service.ShelfService;

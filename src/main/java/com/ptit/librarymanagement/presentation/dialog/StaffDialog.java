@@ -4,13 +4,13 @@ package com.ptit.librarymanagement.presentation.dialog;
 
 import com.ptit.librarymanagement.common.enums.Gender;
 import com.ptit.librarymanagement.common.enums.Role;
-import com.ptit.librarymanagement.dto.AccountDTO;
-import com.ptit.librarymanagement.dto.StaffDTO;
+import com.ptit.librarymanagement.model.dto.AccountDTO;
+import com.ptit.librarymanagement.model.dto.StaffDTO;
 import com.ptit.librarymanagement.presentation.dialog.component.ButtonCustom;
 import com.ptit.librarymanagement.presentation.dialog.component.HeaderTitle;
 import com.ptit.librarymanagement.presentation.dialog.component.InputDate;
 import com.ptit.librarymanagement.presentation.dialog.component.InputForm;
-import lombok.Getter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 import java.util.Date;
 import java.util.Enumeration;
 
-@Getter
+
 public class StaffDialog extends JDialog {
 
     private HeaderTitle titlePage;
@@ -276,6 +276,99 @@ public class StaffDialog extends JDialog {
         female.setEnabled(false);
     }
 
+    public HeaderTitle getTitlePage() {
+        return titlePage;
+    }
 
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
 
+    public JPanel getBottomPanel() {
+        return bottomPanel;
+    }
+
+    public ButtonCustom getCreateButton() {
+        return createButton;
+    }
+
+    public ButtonCustom getUpdateButton() {
+        return updateButton;
+    }
+
+    public ButtonCustom getCancelButton() {
+        return cancelButton;
+    }
+
+    public ButtonCustom getConfirmButton() {
+        return confirmButton;
+    }
+
+    public JTextField getStaffIdInput() {
+        return staffIdInput;
+    }
+
+    public InputForm getFirstNameInput() {
+        return firstNameInput;
+    }
+
+    public InputForm getLastNameInput() {
+        return lastNameInput;
+    }
+
+    public InputForm getLocationsInput() {
+        return locationsInput;
+    }
+
+    public InputForm getPhoneInput() {
+        return phoneInput;
+    }
+
+    public InputForm getEmailInput() {
+        return emailInput;
+    }
+
+    public InputForm getSalaryInput() {
+        return salaryInput;
+    }
+
+    public InputForm getUserNameInput() {
+        return userNameInput;
+    }
+
+    public InputForm getPasswordInput() {
+        return passwordInput;
+    }
+
+    public ButtonGroup getGenderInput() {
+        return genderInput;
+    }
+
+    public JRadioButton getMale() {
+        return male;
+    }
+
+    public JRadioButton getFemale() {
+        return female;
+    }
+
+    public ButtonGroup getRoleInput() {
+        return roleInput;
+    }
+
+    public JRadioButton getAdmin() {
+        return admin;
+    }
+
+    public JRadioButton getStaff() {
+        return staff;
+    }
+
+    public InputDate getDateInput() {
+        return dateInput;
+    }
+
+    public JTextField getAccountIdInput() {
+        return accountIdInput;
+    }
 }

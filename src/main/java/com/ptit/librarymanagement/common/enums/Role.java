@@ -1,10 +1,5 @@
 package com.ptit.librarymanagement.common.enums;
 
-
-import com.kitfox.svg.A;
-import lombok.Getter;
-
-@Getter
 public enum Role {
     ADMIN(1, "Admin"),
     STAFF (2, "Staff")
@@ -35,4 +30,11 @@ public enum Role {
 
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
 }

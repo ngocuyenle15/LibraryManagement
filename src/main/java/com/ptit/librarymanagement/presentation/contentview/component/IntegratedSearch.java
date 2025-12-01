@@ -2,17 +2,13 @@ package com.ptit.librarymanagement.presentation.contentview.component;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
-import com.ptit.librarymanagement.dto.PublisherDTO;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 
-@Getter
-@Setter
+
 public class IntegratedSearch extends JPanel {
 
     private JComboBox<String> cbxChoose;
@@ -71,7 +67,35 @@ public class IntegratedSearch extends JPanel {
         this.add(jpSearch);
     }
 
+    public JComboBox<String> getCbxChoose() {
+        return cbxChoose;
+    }
 
+    public void setCbxChoose(JComboBox<String> cbxChoose) {
+        this.cbxChoose = cbxChoose;
+    }
 
+    public JButton getBtnReset() {
+        return btnReset;
+    }
 
+    public void setBtnReset(JButton btnReset) {
+        this.btnReset = btnReset;
+    }
+
+    public JTextField getTxtSearchForm() {
+        return txtSearchForm;
+    }
+
+    public void setTxtSearchForm(JTextField txtSearchForm) {
+        this.txtSearchForm = txtSearchForm;
+    }
+
+    public JPanel getJpSearch() {
+        return jpSearch;
+    }
+
+    public void setJpSearch(JPanel jpSearch) {
+        this.jpSearch = jpSearch;
+    }
 }

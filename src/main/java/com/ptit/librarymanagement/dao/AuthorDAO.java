@@ -1,18 +1,23 @@
 package com.ptit.librarymanagement.dao;
 
-import com.ptit.librarymanagement.dto.AuthorDTO;
-import com.ptit.librarymanagement.dto.BookDTO;
+import com.ptit.librarymanagement.model.dto.AuthorDTO;
+import com.ptit.librarymanagement.model.dto.BookDTO;
 
-import lombok.RequiredArgsConstructor;
+
 
 import java.sql.*;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
+
 public class AuthorDAO {
     private final Connection connection;
+
+    public AuthorDAO(Connection connection) {
+        this.connection = connection;
+    }
+
     public List<AuthorDTO> getAllAuthor () {
         List<AuthorDTO> list = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement("select * from author")) {

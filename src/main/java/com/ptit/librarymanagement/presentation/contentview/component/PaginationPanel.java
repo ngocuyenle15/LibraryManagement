@@ -1,13 +1,13 @@
 package com.ptit.librarymanagement.presentation.contentview.component;
 
 import com.ptit.librarymanagement.common.paging.Pageable;
-import lombok.Getter;
+
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-@Getter
+
 public class PaginationPanel extends JPanel {
 
     private final Pageable pageable;
@@ -30,7 +30,7 @@ public class PaginationPanel extends JPanel {
     public PaginationPanel(int totalRecords, int pageSize) {
         this.setBackground(new Color(240, 247, 250));
         this.pageable = new Pageable();
-        this.pageable.setCurrenPage(0);
+        this.pageable.setCurrentPage(0);
         this.pageable.setTotalRecord(totalRecords);
         this.pageable.setPageSize(pageSize);
 
@@ -69,7 +69,7 @@ public class PaginationPanel extends JPanel {
 
     public void notifyPageChange() {
         if (listener != null) {
-            listener.onPageChanged(pageable.getCurrenPage());
+            listener.onPageChanged(pageable.getCurrentPage());
         }
     }
 
@@ -78,10 +78,26 @@ public class PaginationPanel extends JPanel {
     }
 
     public int getCurrentPage() {
-        return pageable.getCurrenPage();
+        return pageable.getCurrentPage();
     }
 
     public interface PageChangeListener {
         void onPageChanged(int newPage);
+    }
+
+    public Pageable getPageable() {
+        return pageable;
+    }
+
+    public JButton getPrevButton() {
+        return prevButton;
+    }
+
+    public JButton getNextButton() {
+        return nextButton;
+    }
+
+    public PageChangeListener getListener() {
+        return listener;
     }
 }

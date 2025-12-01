@@ -1,8 +1,8 @@
 package com.ptit.librarymanagement.presentation.dialog;
 
-import com.ptit.librarymanagement.dto.*;
+import com.ptit.librarymanagement.model.dto.*;
 import com.ptit.librarymanagement.presentation.dialog.component.*;
-import lombok.Getter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Set;
 
-@Getter
+
 public final class BookDialog extends JDialog {
     private HeaderTitle titlePanel;
     private JPanel bookFormPanel, buttonPanel, centerPanel, coverPanel, mainPanel;
@@ -102,7 +102,7 @@ public final class BookDialog extends JDialog {
         idInput.setText("");
 
 
-        authorInput = new MultiSelectFieldPanel<>("Tác giả", listAuthor, o -> String.format("%s %s", o.getFirstName(), o.getLastName()));
+        authorInput = new MultiSelectFieldPanel<>("Tác giả", listAuthor, o -> o.getFullName());
 
 
 
@@ -195,6 +195,93 @@ public final class BookDialog extends JDialog {
         this.setLocationRelativeTo(null);
     }
 
+    public HeaderTitle getTitlePanel() {
+        return titlePanel;
+    }
+
+    public JPanel getBookFormPanel() {
+        return bookFormPanel;
+    }
+
+    public JPanel getButtonPanel() {
+        return buttonPanel;
+    }
+
+    public JPanel getCenterPanel() {
+        return centerPanel;
+    }
+
+    public JPanel getCoverPanel() {
+        return coverPanel;
+    }
+
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
+
+    public ButtonCustom getCreateButton() {
+        return createButton;
+    }
+
+    public ButtonCustom getCancelButton() {
+        return cancelButton;
+    }
+
+    public ButtonCustom getSaveButton() {
+        return saveButton;
+    }
+
+    public InputForm getTitleInput() {
+        return titleInput;
+    }
+
+    public InputForm getQuantityInput() {
+        return quantityInput;
+    }
+
+    public InputForm getDescriptionInput() {
+        return descriptionInput;
+    }
+
+    public JTextField getIdInput() {
+        return idInput;
+    }
+
+    public MultiSelectFieldPanel<PublisherDTO> getPublisherInput() {
+        return publisherInput;
+    }
+
+    public MultiSelectFieldPanel<CategoryDTO> getCategoryInput() {
+        return categoryInput;
+    }
+
+    public MultiSelectFieldPanel<AuthorDTO> getAuthorInput() {
+        return authorInput;
+    }
+
+    public MultiSelectFieldPanel<ShelfDTO> getShelfInput() {
+        return shelfInput;
+    }
+
+    public InputImage getCoverInput() {
+        return coverInput;
+    }
+
+    public List<PublisherDTO> getListPublisher() {
+        return listPublisher;
+    }
+
+    public List<CategoryDTO> getListCategory() {
+        return listCategory;
+    }
+
+    public List<AuthorDTO> getListAuthor() {
+        return listAuthor;
+    }
+
+    public List<ShelfDTO> getListShelf() {
+        return listShelf;
+    }
 
     public void setListPublisher(List<PublisherDTO> list) {
         this.publisherInput.setItems(list);

@@ -4,7 +4,7 @@
  */
 package com.ptit.librarymanagement.presentation.dialog.component;
 
-import lombok.Getter;
+
 
 import javax.accessibility.AccessibleContext;
 import javax.swing.*;
@@ -14,7 +14,7 @@ import javax.swing.plaf.ComponentUI;
 import java.awt.*;
 
 
-@Getter
+
 public final class InputForm extends JPanel {
 
     private JLabel lblTitle;
@@ -178,6 +178,8 @@ public final class InputForm extends JPanel {
     public String getDocument() {
         return txtForm.getText();
     }
+
+
 
 
 

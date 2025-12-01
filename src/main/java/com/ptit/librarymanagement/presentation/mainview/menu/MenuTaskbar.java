@@ -1,6 +1,6 @@
 package com.ptit.librarymanagement.presentation.mainview.menu;
 import com.ptit.librarymanagement.presentation.dialog.MyAccount;
-import lombok.Getter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-@Getter
+
 public class MenuTaskbar extends JPanel {
     String[][] menuItemInformation = {
             {"Trang chủ", "home_icon.svg", "homePanel"},
@@ -156,5 +156,59 @@ public class MenuTaskbar extends JPanel {
         }
     }
 
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
 
+    public JPanel getPnlCenter() {
+        return pnlCenter;
+    }
+
+    public JPanel getPnlTop() {
+        return pnlTop;
+    }
+
+    public JPanel getPnlBottom() {
+        return pnlBottom;
+    }
+
+    public JPanel getBar1() {
+        return bar1;
+    }
+
+    public JPanel getBar2() {
+        return bar2;
+    }
+
+    public JPanel getBar3() {
+        return bar3;
+    }
+
+    public JPanel getBar4() {
+        return bar4;
+    }
+
+    public Color getFontColor() {
+        return FontColor;
+    }
+
+    public Color getDefaultColor() {
+        return DefaultColor;
+    }
+
+    public Color getHowerFontColor() {
+        return HowerFontColor;
+    }
+
+    public Color getHowerBackgroundColor() {
+        return HowerBackgroundColor;
+    }
+
+    public JFrame getOwner() {
+        return owner;
+    }
+
+    public MyAccount getAccountInformationPanel() {
+        return accountInformationPanel;
+    }
 }

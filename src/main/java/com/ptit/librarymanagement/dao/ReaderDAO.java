@@ -1,16 +1,20 @@
 package com.ptit.librarymanagement.dao;
 
-import com.ptit.librarymanagement.dto.ReaderDTO;
-import lombok.RequiredArgsConstructor;
+import com.ptit.librarymanagement.model.dto.ReaderDTO;
+
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@RequiredArgsConstructor
+
 public class ReaderDAO {
     private final Connection connection;
+
+    public ReaderDAO(Connection connection) {
+        this.connection = connection;
+    }
 
     // CRUD reader
 

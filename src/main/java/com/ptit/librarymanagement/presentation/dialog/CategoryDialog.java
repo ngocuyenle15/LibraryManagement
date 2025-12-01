@@ -2,18 +2,18 @@ package com.ptit.librarymanagement.presentation.dialog;
 
 
 
-import com.ptit.librarymanagement.dto.CategoryDTO;
+import com.ptit.librarymanagement.model.dto.CategoryDTO;
 import com.ptit.librarymanagement.presentation.dialog.component.ButtonCustom;
 import com.ptit.librarymanagement.presentation.dialog.component.HeaderTitle;
 import com.ptit.librarymanagement.presentation.dialog.component.InputForm;
-import lombok.Getter;
+
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-@Getter
+
 public class CategoryDialog extends JDialog {
     private HeaderTitle titlePage;
     private JPanel mainPanel, bottomPanel;
@@ -92,7 +92,35 @@ public class CategoryDialog extends JDialog {
         this.add(bottomPanel, BorderLayout.SOUTH);
     }
 
+    public HeaderTitle getTitlePage() {
+        return titlePage;
+    }
 
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
 
+    public JPanel getBottomPanel() {
+        return bottomPanel;
+    }
 
+    public ButtonCustom getCreateButton() {
+        return createButton;
+    }
+
+    public ButtonCustom getUpdateButton() {
+        return updateButton;
+    }
+
+    public ButtonCustom getCancelButton() {
+        return cancelButton;
+    }
+
+    public InputForm getCategoryNameInput() {
+        return categoryNameInput;
+    }
+
+    public JTextField getIdInput() {
+        return idInput;
+    }
 }
