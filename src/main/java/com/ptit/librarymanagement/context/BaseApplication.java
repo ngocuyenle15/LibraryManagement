@@ -34,7 +34,8 @@ public class BaseApplication implements Application {
             MainFrame mainFrame = new MainFrame(BaseApplication.this.viewFactory, BaseApplication.this.controllerFactory);
             AccountDTO account = session.getAccount();
             mainFrame.getMenuTaskbar().getAccountInformationPanel().setUserNameAndRoleText(account.getUserName(), account.getRole().getRoleName());
-//            serviceFactory.getBorrowCardService().loadStateAllBorrowCard();
+            // todo: tự động cập nhật lại tất cả trạng thái của thẻ mượn
+            serviceFactory.getBorrowCardService().loadStateAllBorrowCard();
             mainFrame.setVisible(true);
         });
         loginController.displayFormLogin();

@@ -1,4 +1,4 @@
-package com.ptit.librarymanagement.common.validation.customvalidation.comomdatevaildation;
+package com.ptit.librarymanagement.common.validation.customvalidation.datevaildation;
 
 
 import jakarta.validation.ConstraintValidator;

@@ -2,6 +2,7 @@ package com.ptit.librarymanagement.presentation.mainview;
 
 
 
+import com.ptit.librarymanagement.MainApplication;
 import com.ptit.librarymanagement.common.authentication.Session;
 import com.ptit.librarymanagement.common.dbutils.DbConnection;
 import com.ptit.librarymanagement.common.enums.Role;
@@ -27,6 +28,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 @Data
 public class MainFrame extends  JFrame {
@@ -48,6 +51,9 @@ public class MainFrame extends  JFrame {
     private ViewFactory viewFactory;
 
 
+
+
+
     public MainFrame (ViewFactory viewFactory,ControllerFactory controllerFactory) {
         this.viewFactory = viewFactory;
         this.controllerFactory = controllerFactory;
@@ -67,10 +73,26 @@ public class MainFrame extends  JFrame {
 
         this.addViewsForContentPanel(contentPanel);
         this.add(contentPanel, BorderLayout.CENTER);
+        this.addWindowListener(closeJFrame());
+
         actionListenerMenu();
 
 
     }
+
+    private WindowAdapter closeJFrame () {
+        return new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                DbConnection.closeConnection();
+            }
+        };
+    }
+
+
+
+
+
 
     private void init (ViewFactory viewFactory) {
         authorPanel = viewFactory.getAuthorPanel();
@@ -192,14 +214,9 @@ public class MainFrame extends  JFrame {
                 if (response == JOptionPane.YES_OPTION) {
                     Session.getSession().setAccount(null);
                     MainFrame.this.dispose();
-
-
-
-                } else if (response == JOptionPane.NO_OPTION) {
-                    System.out.println("Người dùng chọn NO");
-                } else {
-                    System.out.println("Người dùng đóng dialog");
                 }
+//                System.exit(0);
+                MainApplication.runApp();
             }
         });
 
@@ -282,6 +299,9 @@ public class MainFrame extends  JFrame {
 
 
     }
+
+
+
     private void addViewsForContentPanel(ContentPanel contentPanel) {
         contentPanel.add(homePanel, "homePanel");
         contentPanel.add(bookPanel, "bookPanel");

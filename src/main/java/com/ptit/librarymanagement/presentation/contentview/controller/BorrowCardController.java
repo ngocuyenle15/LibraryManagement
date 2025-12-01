@@ -17,6 +17,7 @@ import com.ptit.librarymanagement.service.ReaderService;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.Date;
 import java.util.Optional;
 
 public class BorrowCardController {
@@ -244,6 +245,16 @@ public class BorrowCardController {
 
     private void handlerCreateBorrowCard () {
         BorrowCardDialog dialog = new BorrowCardDialog(null, true, "Tạo thẻ mượn", "create");
+        dialog.getStartDateInput().setDate(new Date());
+        dialog.getStartDateInput().setDisable();
+        dialog.getBookInput().getField().getCreateButton().addActionListener(l-> {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Không thể tạo thêm sách mới ở đây",
+                    "Lỗi",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        });
         dialog.getReaderInput().getField().getCreateButton().addActionListener(createReader(dialog));
         dialog.setListForMultiSelectField(readerService.getAllReader(), bookService.getBookCanBorrow());
         dialog.getCreateButton().addActionListener(l -> {

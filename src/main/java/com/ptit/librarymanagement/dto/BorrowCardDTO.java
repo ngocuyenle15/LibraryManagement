@@ -1,12 +1,10 @@
 package com.ptit.librarymanagement.dto;
 
-import com.ptit.librarymanagement.common.validation.customvalidation.comomdatevaildation.DateValid;
-import com.ptit.librarymanagement.common.validation.customvalidation.comomdatevaildation.ReturnDateValid;
+import com.ptit.librarymanagement.common.validation.customvalidation.datevaildation.ReturnDateValid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.springframework.lang.CheckReturnValue;
 
 import java.sql.Date;
 import java.util.ArrayList;

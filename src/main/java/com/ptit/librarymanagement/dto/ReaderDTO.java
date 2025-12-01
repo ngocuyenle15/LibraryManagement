@@ -1,6 +1,6 @@
 package com.ptit.librarymanagement.dto;
 
-import com.ptit.librarymanagement.common.validation.customvalidation.comomdatevaildation.DateValid;
+import com.ptit.librarymanagement.common.validation.customvalidation.datevaildation.DateValid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;

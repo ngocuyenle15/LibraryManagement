@@ -1,0 +1,27 @@
+ACCOUNT ROLE: Admin
+--------------------
+user_name: Uyenle123
+password: Uyenle123@
+
+user_name: Khoan123
+password: Khoan123@
+
+user_name: Vyphan123
+password: Vyphan123@
+
+user_name: admin
+password: Admin123@11ds
+
+
+
+
+
+
+
+ACCOUNT ROLE: Staff
+--------------------
+user_name:staffdemo
+staff123@
+
+user_name:namstaff
+password:Namstaff123@
