@@ -72,10 +72,7 @@ public class InputEmailForgotPassWordDialog extends JDialog {
         this.add(bottomPanel, BorderLayout.SOUTH);
     }
 
-    public static void main(String[] args) {
-        InputEmailForgotPassWordDialog forgotPasswordG = new InputEmailForgotPassWordDialog(null, true, "Nhập ", "create");
-        forgotPasswordG.setVisible(true);
-    }
+
 
 
 }

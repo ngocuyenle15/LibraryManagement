@@ -119,11 +119,6 @@ public class BorrowCardService {
 
 
 
-    public static void main(String[] args) {
-        BookDAO bookDAO1 = new BookDAO(DbConnection.getConnection());
-        bookDAO1.updateQuantityBook(4, 100);
-
-    }
 
 
 

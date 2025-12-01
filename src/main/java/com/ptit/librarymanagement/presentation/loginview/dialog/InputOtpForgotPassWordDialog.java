@@ -66,10 +66,6 @@ public class InputOtpForgotPassWordDialog extends JDialog {
         this.add(bottomPanel, BorderLayout.SOUTH);
     }
 
-    public static void main(String[] args) {
-        InputOtpForgotPassWordDialog forgotPasswordG = new InputOtpForgotPassWordDialog(null, true, "Nhập OTP", "create");
-        forgotPasswordG.setVisible(true);
-    }
 
 
 }
