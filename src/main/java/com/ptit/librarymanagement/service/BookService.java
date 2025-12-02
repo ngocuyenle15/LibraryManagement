@@ -138,7 +138,7 @@ public class BookService {
 
     @Transactional
     public void updateBook (BookDTO bookDTO) {
-        // update table book - cover nang dung ham rieng
+        // update table book - cover nen dung ham rieng
         bookDAO.updateBook(bookDTO);
         if (bookDTO.getCover() != null) {
             bookDAO.updateBookCover(bookDTO);

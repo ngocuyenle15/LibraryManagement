@@ -128,7 +128,12 @@ public class StaffController {
                     staffPanel.loadDataInTable();
                     dialog.dispose();
                 } catch (Exception e) {
-                    System.out.println(e.getCause().getMessage());
+                    JOptionPane.showMessageDialog(
+                            null,
+                            e.getMessage(),
+                            "Lỗi",
+                            JOptionPane.ERROR_MESSAGE
+                    );
                 }
             }
         });
@@ -149,7 +154,12 @@ public class StaffController {
                    staffPanel.loadDataInTable();
                    dialog.dispose();
                } catch (Exception e) {
-                   System.out.println(e);
+                   JOptionPane.showMessageDialog(
+                           null,
+                           e.getMessage(),
+                           "Lỗi",
+                           JOptionPane.ERROR_MESSAGE
+                   );
                }
            }
        });
@@ -161,9 +171,18 @@ public class StaffController {
     private void handlerDeleteStaff(StaffDTO staffDTO) {
         int input = JOptionPane.showConfirmDialog(null, "Xóa nhân viên", "Xóa nhân viên", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
         if (input == 0) {
-            staffService.deleteStaffAccount(staffDTO);
-            model.setListStaff(staffService.getAllStaff());
-            this.staffPanel.loadDataInTable();
+            try {
+                staffService.deleteStaffAccount(staffDTO);
+                model.setListStaff(staffService.getAllStaff());
+                this.staffPanel.loadDataInTable();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(
+                        null,
+                        e.getMessage(),
+                        "Lỗi",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
         }
 
     }

@@ -162,9 +162,19 @@ public class BorrowCardController {
     private void handlerReturnBook (BorrowCardDTO borrowCardDTO) {
         int input = JOptionPane.showConfirmDialog(null, "Xác nhận trả sách", "Trả sách ", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
         if (input == 0) {
-            borrowCardService.returnBooks(borrowCardDTO);
-            model.setListBorrowCards(borrowCardService.getAllBorrowCard());
-            borrowCardPanel.loadDataInTable();
+            try {
+                borrowCardService.returnBooks(borrowCardDTO);
+                model.setListBorrowCards(borrowCardService.getAllBorrowCard());
+                borrowCardPanel.loadDataInTable();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(
+                        null,
+                        e.getMessage(),
+                        "Lỗi",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+
         }
     }
 

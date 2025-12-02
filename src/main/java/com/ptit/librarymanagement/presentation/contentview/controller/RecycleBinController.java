@@ -97,9 +97,18 @@ public class RecycleBinController {
     private void handlerDeleteBookPermanent(BookDTO bookDTO) {
         int input = JOptionPane.showConfirmDialog(null, "Xóa sách vĩnh viễn", "Xóa sách vĩnh viễn", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
         if (input == 0) {
-            bookService.deletePermanently(bookDTO);
-            model.setBookDTOS(bookService.getAllBook(true));
-            recycleBinPanel.loadDataInTable();
+            try {
+                bookService.deletePermanently(bookDTO);
+                model.setBookDTOS(bookService.getAllBook(true));
+                recycleBinPanel.loadDataInTable();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(
+                        null,
+                        e.getMessage(),
+                        "Lỗi",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
         }
     }
     private void handlerUndo(BookDTO bookDTO) {

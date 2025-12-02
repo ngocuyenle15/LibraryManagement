@@ -220,11 +220,21 @@ public class BookController  {
                 shelfService.getAllShelves());
         dialog.getCreateButton().addActionListener(actionEvent -> {
             BookDTO bookDTO = dialog.getObjectInField();
+
             if (validationService.checkConstraint(bookDTO)) {
-                bookService.insertBook(bookDTO);
-                model.setListBooks(bookService.loadAllBook(model.getPageable(), false));
-                bookPanel.loadDataInTable();
-                dialog.dispose();
+                try {
+                    bookService.insertBook(bookDTO);
+                    model.setListBooks(bookService.loadAllBook(model.getPageable(), false));
+                    bookPanel.loadDataInTable();
+                    dialog.dispose();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(
+                            null,
+                            e.getMessage(),
+                            "Lỗi",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+                }
             }
         });
         dialog.setVisible(true);
@@ -246,10 +256,19 @@ public class BookController  {
         dialog.getSaveButton().addActionListener(actionEvent -> {
             BookDTO bookUpdate = dialog.getObjectInField();
             if (validationService.checkConstraint(bookUpdate)) {
-                bookService.updateBook(bookUpdate);
-                model.setListBooks(bookService.loadAllBook(model.getPageable(), false));
-                bookPanel.loadDataInTable();
-                dialog.dispose();
+                try {
+                    bookService.updateBook(bookUpdate);
+                    model.setListBooks(bookService.loadAllBook(model.getPageable(), false));
+                    bookPanel.loadDataInTable();
+                    dialog.dispose();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(
+                            null,
+                            e.getMessage(),
+                            "Lỗi",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+                }
             }
         });
         dialog.setVisible(true);
