@@ -8,10 +8,9 @@ Mức logic: Phan Thiện Vỹ
 Mức vật lý: Trần Quang Khoan
 
 
-
 Lập trình:
 Phân công nhiệm vụ theo view, mỗi view tương ứng sẽ làm service, dto, dao, dialog CRUD cho view tương ứng, controller xử lý view, component view, xử lý ngoại lệ,...
 
-Lê Ngọc Uyển: view sách, phiếu mượn, login, validation, transaction manager, mainframe
+Lê Ngọc Uyển: mainframe, view sách, phiếu mượn, login, validation, transaction manager, mainframe, context
 Phan Thiện Vỹ: độc giả, danh mục, tác giả, mainframe
 Trần Quang Khoan: Nhà xuất bản, nhân viên, thùng rác, menu view,mainframe

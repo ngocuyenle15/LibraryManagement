@@ -161,7 +161,7 @@ public final class BookDialog extends JDialog {
 
             }
             case "create" -> {
-                createButton = new ButtonCustom("Create", "success", 14);
+                createButton = new ButtonCustom("Thêm sách", "success", 14);
                 buttonPanel.add(createButton);
             }
 

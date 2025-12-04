@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.ptit.librarymanagement.presentation.dialog.component;
 
 
@@ -24,6 +20,7 @@ import java.util.logging.Logger;
 
 
 public class InputImage extends JPanel implements ActionListener {
+//    private JButton btnChooseImg;
     private JButton btnChooseImg;
     private JLabel img;
     private String url_img;
@@ -44,13 +41,6 @@ public class InputImage extends JPanel implements ActionListener {
         return url_img;
     }
 
-    public void setUrl_img(String url_img) {
-        ImageIcon imgicon = new ImageIcon("./src/img_product/" + url_img);
-        imgicon = new ImageIcon(scale(imgicon));
-        btnChooseImg.setIcon(imgicon);
-        btnChooseImg.setText("");
-        this.url_img = url_img;
-    }
 
     public void setUnable() {
         this.btnChooseImg.setEnabled(false);
@@ -73,9 +63,11 @@ public class InputImage extends JPanel implements ActionListener {
             try {
                 b = ImageIO.read(file);
                 imgicon = new ImageIcon(scale(imgicon));
-                System.out.println(imgicon.getIconWidth() + ":" + imgicon.getIconHeight());
+//                System.out.println(imgicon.getIconWidth() + ":" + imgicon.getIconHeight());
                 btnChooseImg.setText("");
                 btnChooseImg.setIcon(imgicon);
+                this.repaint();
+                this.revalidate();
             } catch (IOException ex) {
                 Logger.getLogger(InputImage.class.getName()).log(Level.SEVERE, null, ex);
             }

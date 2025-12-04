@@ -13,11 +13,6 @@ user_name: admin
 password: Admin123@11ds
 
 
-
-
-
-
-
 ACCOUNT ROLE: Staff
 --------------------
 user_name:staffdemo

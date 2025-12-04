@@ -1,47 +1,60 @@
 package com.ptit.librarymanagement.model.dto;
 
+import com.ptit.librarymanagement.common.validation.customvalidation.datevaildation.BirthDateValid;
 import com.ptit.librarymanagement.common.validation.customvalidation.datevaildation.DateValid;
+import com.ptit.librarymanagement.common.validation.groupvalidation.CreateAccount;
+import com.ptit.librarymanagement.common.validation.groupvalidation.CreateStaff;
+import com.ptit.librarymanagement.common.validation.groupvalidation.UpdateAccount;
+import com.ptit.librarymanagement.common.validation.groupvalidation.UpdateStaff;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.groups.ConvertGroup;
 
 
 import java.sql.Date;
 
 
-public class
-StaffDTO {
+public class StaffDTO {
     private Integer id;
-    @NotNull (message = "Tên không được để trống!")
-    @NotBlank (message = "Tên không được để trống!")
+    @NotNull (message = "Tên không được để trống!", groups = {UpdateStaff.class, CreateStaff.class})
+    @NotBlank (message = "Tên không được để trống!", groups = {UpdateStaff.class, CreateStaff.class})
     private String firstName;
 
-    @NotNull (message = "Họ không được để trống!")
-    @NotBlank (message = "Họ không được để trống!")
+    @NotNull (message = "Họ không được để trống!", groups = {UpdateStaff.class, CreateStaff.class})
+    @NotBlank (message = "Họ không được để trống!", groups = {UpdateStaff.class, CreateStaff.class})
     private String lastName;
 
-    @NotNull (message = "Giới tính không được để trống!")
+    @NotNull (message = "Giới tính không được để trống!", groups = {UpdateStaff.class, CreateStaff.class})
     private Boolean gender;
 
-    @DateValid (message = "Ngày sinh không hợp lệ!")
+    @DateValid (message = "Ngày sinh không hợp lệ!", groups = {UpdateStaff.class, CreateStaff.class})
+    @BirthDateValid(age = 18, message = "Nhân viên phải từ 18 tuổi trở lên!", groups = {UpdateStaff.class, CreateStaff.class})
     private Date birth;
 
-    @NotNull (message = "Địa chỉ không được để trống!")
-    @NotBlank (message = "Địa chỉ không được để trống!")
+    @NotNull (message = "Địa chỉ không được để trống!", groups = {UpdateStaff.class, CreateStaff.class})
+    @NotBlank (message = "Địa chỉ không được để trống!", groups = {UpdateStaff.class, CreateStaff.class})
     private String location;
 
-    @NotNull (message = "Lương không được để trống!")
+    @NotNull (message = "Lương không được để trống!", groups = {UpdateStaff.class, CreateStaff.class})
     private Double salary = 0.0;
 
 
-    @Pattern(regexp = "^(0[3|5|7|8|9])[0-9]{8}$", message = "Vui lòng nhập số điện thoại hợp lệ!")
+    @Pattern(regexp = "^(0[3|5|7|8|9])[0-9]{8}$", message = "Vui lòng nhập số điện thoại hợp lệ!", groups = {UpdateStaff.class, CreateStaff.class})
     private String phone;
 
-    @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",  message = "Vui lòng nhập email hợp lệ!")
+    @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",  message = "Vui lòng nhập email hợp lệ!", groups = {UpdateStaff.class, CreateStaff.class})
     private String email;
 
+
+//    @ConvertGroup(from = CreateStaff.class, to = CreateAccount.class)
+//    @ConvertGroup(from = UpdateStaff.class, to = UpdateAccount.class)
     @Valid
+    @ConvertGroup.List({
+            @ConvertGroup(from = CreateStaff.class, to = CreateAccount.class),
+            @ConvertGroup(from = UpdateStaff.class, to = UpdateAccount.class)
+    })
     private AccountDTO account;
 
     public StaffDTO(Integer id, String firstName, String lastName, Boolean gender, Date birth, String location, Double salary, String phone, String email, AccountDTO account) {

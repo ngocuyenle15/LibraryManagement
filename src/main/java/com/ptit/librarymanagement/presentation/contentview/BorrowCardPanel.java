@@ -5,7 +5,7 @@ import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.ptit.librarymanagement.model.dto.BookDTO;
 import com.ptit.librarymanagement.model.dto.BorrowCardDTO;
 import com.ptit.librarymanagement.presentation.contentview.component.*;
-import com.ptit.librarymanagement.presentation.mainview.menu.ItemTaskbar;
+import com.ptit.librarymanagement.presentation.mainview.menu.ItemMenu;
 
 
 import javax.swing.*;
@@ -130,10 +130,10 @@ public class BorrowCardPanel extends JPanel {
         title.setFont(new Font(FlatRobotoFont.FAMILY, 1, 16));
         bookInBorrowCard.add(title);
         int size = model.listBooks.size();
-        ItemTaskbar listItem[] = new ItemTaskbar[size];
+        ItemMenu listItem[] = new ItemMenu[size];
         for (int i = 0; i < size; i++) {
             BookDTO bookDTO = model.listBooks.get(i);
-            listItem[i] = new ItemTaskbar("imagePath", bookDTO.getTitle(), bookDTO.getQuantity());
+            listItem[i] = new ItemMenu("imagePath", bookDTO.getTitle(), bookDTO.getQuantity());
             bookInBorrowCard.add(listItem[i]);
         }
         if (listItem.length == 0) {

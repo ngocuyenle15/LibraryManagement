@@ -1,5 +1,6 @@
 package com.ptit.librarymanagement.model.dto;
 
+import com.ptit.librarymanagement.common.validation.customvalidation.datevaildation.BirthDateValid;
 import com.ptit.librarymanagement.common.validation.customvalidation.datevaildation.DateValid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -29,6 +30,7 @@ public class ReaderDTO {
     private String location;
 
     @DateValid(message = "Ngày sinh không hợp lệ!")
+    @BirthDateValid(age = 14, message = "Đọc giả phải từ 14 tuổi trở lên!")
     private Date birth;
 
 

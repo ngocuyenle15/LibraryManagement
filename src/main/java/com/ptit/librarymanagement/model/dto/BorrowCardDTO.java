@@ -31,6 +31,7 @@ public class BorrowCardDTO {
     private List<BookDTO> books = new ArrayList<>();
 
     private String punishment = "";
+    private String node;
 
 
     public Object[] getRow () {

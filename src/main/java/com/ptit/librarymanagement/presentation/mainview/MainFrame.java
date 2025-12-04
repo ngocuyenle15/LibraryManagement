@@ -18,8 +18,8 @@ import com.ptit.librarymanagement.presentation.contentview.controller.BookContro
 import com.ptit.librarymanagement.presentation.dialog.AccountDialog;
 import com.ptit.librarymanagement.presentation.dialog.AccountPanel;
 import com.ptit.librarymanagement.presentation.mainview.main.component.ContentPanel;
-import com.ptit.librarymanagement.presentation.mainview.menu.ItemTaskbar;
-import com.ptit.librarymanagement.presentation.mainview.menu.MenuTaskbar;
+import com.ptit.librarymanagement.presentation.mainview.menu.ItemMenu;
+import com.ptit.librarymanagement.presentation.mainview.menu.MenuPanel;
 import com.ptit.librarymanagement.service.AccountService;
 
 
@@ -44,7 +44,7 @@ public class MainFrame extends  JFrame {
     private RecycleBinPanel recycleBinPanel;
     private StaffPanel staffPanel;
     private ContentPanel contentPanel;
-    private MenuTaskbar menuTaskbar;
+    private MenuPanel menuPanel;
     private BookController bookController;
     private ControllerFactory controllerFactory;
     private ViewFactory viewFactory;
@@ -66,9 +66,9 @@ public class MainFrame extends  JFrame {
         init(viewFactory);
         contentPanel = new ContentPanel();
         addViewsForContentPanel(contentPanel);
-        menuTaskbar = new MenuTaskbar();
-        menuTaskbar.setPreferredSize(new Dimension(250, 1400));
-        this.add(menuTaskbar, BorderLayout.WEST);
+        menuPanel = new MenuPanel();
+        menuPanel.setPreferredSize(new Dimension(250, 1400));
+        this.add(menuPanel, BorderLayout.WEST);
 
         this.addViewsForContentPanel(contentPanel);
         this.add(contentPanel, BorderLayout.CENTER);
@@ -107,8 +107,8 @@ public class MainFrame extends  JFrame {
     }
 
     private void actionListenerMenu() {
-        ItemTaskbar[] listItem = menuTaskbar.getListItem();
-        String[][] menuItemInformation = menuTaskbar.getMenuItemInformation();
+        ItemMenu[] listItem = menuPanel.getListItem();
+        String[][] menuItemInformation = menuPanel.getMenuItemInformation();
         Color FontColor = new Color(96, 125, 139);
         Color DefaultColor = new Color(255, 255, 255);
         Color HowerFontColor = new Color(1, 87, 155);
@@ -219,7 +219,7 @@ public class MainFrame extends  JFrame {
             }
         });
 
-        menuTaskbar.getAccountInformationPanel().addMouseListener(new MouseAdapter() {
+        menuPanel.getAccountInformationPanel().addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 AccountPanel userNamePanel = new AccountPanel("Thay đổi tên đăng nhập", "changeUserName");
@@ -403,12 +403,12 @@ public class MainFrame extends  JFrame {
         this.contentPanel = contentPanel;
     }
 
-    public MenuTaskbar getMenuTaskbar() {
-        return menuTaskbar;
+    public MenuPanel getMenuTaskbar() {
+        return menuPanel;
     }
 
-    public void setMenuTaskbar(MenuTaskbar menuTaskbar) {
-        this.menuTaskbar = menuTaskbar;
+    public void setMenuTaskbar(MenuPanel menuPanel) {
+        this.menuPanel = menuPanel;
     }
 
     public BookController getBookController() {

@@ -2,9 +2,7 @@ package com.ptit.librarymanagement.presentation.contentview.controller;
 
 import com.ptit.librarymanagement.common.validation.ValidationService;
 
-import com.ptit.librarymanagement.common.validation.groupvalidation.ChangePassword;
-import com.ptit.librarymanagement.common.validation.groupvalidation.CreateAccount;
-import com.ptit.librarymanagement.common.validation.groupvalidation.UpdateAccount;
+import com.ptit.librarymanagement.common.validation.groupvalidation.*;
 import com.ptit.librarymanagement.model.dto.AccountDTO;
 import com.ptit.librarymanagement.model.dto.StaffDTO;
 import com.ptit.librarymanagement.presentation.dialog.StaffDialog;
@@ -121,7 +119,7 @@ public class StaffController {
         dialog.getAccountIdInput().setText(String.valueOf(staffDTO.getAccount().getId()));
         dialog.getUpdateButton().addActionListener (l -> {
             StaffDTO staffUpdate = dialog.getObjectInField();
-            if (validationService.checkConstraint(staffUpdate, UpdateAccount.class)) {
+            if (validationService.checkConstraint(staffUpdate, UpdateStaff.class)) {
                 try {
                     staffService.updateStaffAndAccount(staffUpdate);
                     model.setListStaff(staffService.getAllStaff());
@@ -147,7 +145,7 @@ public class StaffController {
         StaffDialog dialog = new StaffDialog(null, true, "Thêm nhân viên", "create");
        dialog.getCreateButton().addActionListener(l -> {
            StaffDTO staff = dialog.getObjectInField();
-           if (validationService.checkConstraint(staff, Default.class, CreateAccount.class)) {
+           if (validationService.checkConstraint(staff, Default.class, CreateStaff.class)) {
                try {
                    staffService.CreateStaffAccount(staff);
                    model.setListStaff(staffService.getAllStaff());

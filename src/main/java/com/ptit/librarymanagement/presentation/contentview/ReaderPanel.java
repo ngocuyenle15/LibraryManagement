@@ -5,7 +5,7 @@ import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.ptit.librarymanagement.model.dto.BookDTO;
 import com.ptit.librarymanagement.model.dto.ReaderDTO;
 import com.ptit.librarymanagement.presentation.contentview.component.*;
-import com.ptit.librarymanagement.presentation.mainview.menu.ItemTaskbar;
+import com.ptit.librarymanagement.presentation.mainview.menu.ItemMenu;
 
 
 import javax.swing.*;
@@ -130,10 +130,10 @@ public class ReaderPanel extends JPanel {
         tit.setFont(new Font(FlatRobotoFont.FAMILY, 1, 16));
         bookInCategory.add(tit);
         int size = model.listBooks.size();
-        ItemTaskbar listItem[] = new ItemTaskbar[size];
+        ItemMenu listItem[] = new ItemMenu[size];
         for (int i = 0; i < size; i++) {
             BookDTO bookDTO = model.listBooks.get(i);
-            listItem[i] = new ItemTaskbar("imagePath", bookDTO.getTitle(), bookDTO.getQuantity());
+            listItem[i] = new ItemMenu("imagePath", bookDTO.getTitle(), bookDTO.getQuantity());
             bookInCategory.add(listItem[i]);
         }
         bookInCategory.repaint();

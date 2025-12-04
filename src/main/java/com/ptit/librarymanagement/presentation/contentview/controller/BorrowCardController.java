@@ -160,6 +160,15 @@ public class BorrowCardController {
     }
 
     private void handlerReturnBook (BorrowCardDTO borrowCardDTO) {
+        if (borrowCardDTO.getState().equals(BorrowState.RETURNED.getState())) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Độc giả đã trả sách",
+                    "Lỗi",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
         int input = JOptionPane.showConfirmDialog(null, "Xác nhận trả sách", "Trả sách ", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
         if (input == 0) {
             try {
@@ -195,7 +204,7 @@ public class BorrowCardController {
                 JTextArea textArea = punishDialog.getTextArea();
                 String punishInfo = textArea.getText();
                 if (punishInfo.isBlank()) {
-                    JOptionPane.showMessageDialog(borrowCardPanel, "Vui lòng không để trống");
+                    JOptionPane.showMessageDialog(borrowCardPanel, "Vui lòng không để trống!");
                 } else {
                     borrowCardDTO.setPunishment(textArea.getText());
                     borrowCardService.update(borrowCardDTO);
@@ -204,10 +213,10 @@ public class BorrowCardController {
             });
             punishDialog.setVisible(true);
         } else if (borrowCardDTO.getState().equals(BorrowState.BORROWING.getState())) {
-            JOptionPane.showMessageDialog(borrowCardPanel, "Chưa quá hạn trả sách");
+            JOptionPane.showMessageDialog(borrowCardPanel, "Chưa quá hạn trả sách!");
         }
         else if (borrowCardDTO.getState().equals(BorrowState.RETURNED.getState())) {
-            JOptionPane.showMessageDialog(borrowCardPanel, "Đã trả");
+            JOptionPane.showMessageDialog(borrowCardPanel, "Độc giả đã trả sách!");
         }
 
 
@@ -223,6 +232,9 @@ public class BorrowCardController {
         dialog.getStateInput().setText(String.valueOf(cardDTO.getState()));
         dialog.setDefaultTextInField(cardDTO);
         dialog.setListForMultiSelectField(readerService.getAllReader(), bookService.getAllBook(false));
+        if (!cardDTO.getState().equals(BorrowState.BORROWING.getState())) {
+            dialog.getReturnDateInput().setDisable();
+        }
         dialog.getUpdateButton().addActionListener(l -> {
             BorrowCardDTO cardUpdate = dialog.getObjectInField();
             if (validationService.checkConstraint(cardUpdate)) {
@@ -247,7 +259,7 @@ public class BorrowCardController {
             }
         }
         else {
-            JOptionPane.showMessageDialog(borrowCardPanel, "Thẻ ở trạng thái đang mượn không thể xóa");
+            JOptionPane.showMessageDialog(borrowCardPanel, String.format("Thẻ ở trạng thái \"%s\" không thể xóa", cardDTO.getState()));
         }
 
 

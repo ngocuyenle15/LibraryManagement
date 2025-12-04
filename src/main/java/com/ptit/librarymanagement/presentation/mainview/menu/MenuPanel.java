@@ -9,7 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
-public class MenuTaskbar extends JPanel {
+public class MenuPanel extends JPanel {
     String[][] menuItemInformation = {
             {"Trang chủ", "home_icon.svg", "homePanel"},
             {"Sách", "book_icon.svg", "bookPanel"},
@@ -29,15 +29,15 @@ public class MenuTaskbar extends JPanel {
     }
 
 
-    private ItemTaskbar[] listItem;
+    private ItemMenu[] listItem;
 
-    public ItemTaskbar[] getListItem () {
+    public ItemMenu[] getListItem () {
         return listItem;
     }
 
     JScrollPane scrollPane;
 
-    JPanel pnlCenter, pnlTop, pnlBottom, bar1, bar2, bar3, bar4;
+    JPanel centerPanel, topPanel, bottomPanel, bar1, bar2, bar3, bar4;
 
     Color FontColor = new Color(96, 125, 139);
     Color DefaultColor = new Color(255, 255, 255);
@@ -49,71 +49,71 @@ public class MenuTaskbar extends JPanel {
     MyAccount accountInformationPanel;
 
 
-    public MenuTaskbar() {
+    public MenuPanel() {
         this.initComponent();
     }
 
     private void initComponent() {
-        listItem = new ItemTaskbar[menuItemInformation.length];
+        listItem = new ItemMenu[menuItemInformation.length];
         this.setOpaque(true);
         this.setBackground(DefaultColor);
         this.setLayout(new BorderLayout(0, 0));
 
-        pnlTop = new JPanel();
-        pnlTop.setPreferredSize(new Dimension(250, 80));
-        pnlTop.setBackground(DefaultColor);
-        pnlTop.setLayout(new BorderLayout(0, 0));
-        this.add(pnlTop, BorderLayout.NORTH);
+        topPanel = new JPanel();
+        topPanel.setPreferredSize(new Dimension(250, 80));
+        topPanel.setBackground(DefaultColor);
+        topPanel.setLayout(new BorderLayout(0, 0));
+        this.add(topPanel, BorderLayout.NORTH);
 
         accountInformationPanel = new MyAccount();
-        pnlTop.add(accountInformationPanel, BorderLayout.CENTER);
+        topPanel.add(accountInformationPanel, BorderLayout.CENTER);
 
 
 
         bar1 = new JPanel();
         bar1.setBackground(new Color(204, 214, 219));
         bar1.setPreferredSize(new Dimension(1, 0));
-        pnlTop.add(bar1, BorderLayout.EAST);
+        topPanel.add(bar1, BorderLayout.EAST);
 
         bar2 = new JPanel();
         bar2.setBackground(new Color(204, 214, 219));
         bar2.setPreferredSize(new Dimension(0, 1));
-        pnlTop.add(bar2, BorderLayout.SOUTH);
+        topPanel.add(bar2, BorderLayout.SOUTH);
 
-        pnlCenter = new JPanel();
-        pnlCenter.setPreferredSize(new Dimension(230, 600));
-        pnlCenter.setBackground(DefaultColor);
-        pnlCenter.setLayout(new FlowLayout(0, 0, 5));
+        centerPanel = new JPanel();
+        centerPanel.setPreferredSize(new Dimension(230, 600));
+        centerPanel.setBackground(DefaultColor);
+        centerPanel.setLayout(new FlowLayout(0, 0, 5));
 
         bar3 = new JPanel();
         bar3.setBackground(new Color(204, 214, 219));
         bar3.setPreferredSize(new Dimension(1, 1));
         this.add(bar3, BorderLayout.EAST);
 
-        scrollPane = new JScrollPane(pnlCenter, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane = new JScrollPane(centerPanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setBorder(new EmptyBorder(5, 10, 0, 10));
         this.add(scrollPane, BorderLayout.CENTER);
 
-        pnlBottom = new JPanel();
-        pnlBottom.setPreferredSize(new Dimension(250, 50));
-        pnlBottom.setBackground(DefaultColor);
-        pnlBottom.setLayout(new BorderLayout(0, 0));
+        bottomPanel = new JPanel();
+        bottomPanel.setPreferredSize(new Dimension(250, 50));
+        bottomPanel.setBackground(DefaultColor);
+        bottomPanel.setLayout(new BorderLayout(0, 0));
 
 
         bar4 = new JPanel();
         bar4.setBackground(new Color(204, 214, 219));
         bar4.setPreferredSize(new Dimension(1, 1));
-        pnlBottom.add(bar4, BorderLayout.EAST);
+        bottomPanel.add(bar4, BorderLayout.EAST);
 
-        this.add(pnlBottom, BorderLayout.SOUTH);
+        this.add(bottomPanel, BorderLayout.SOUTH);
 
         for (int i = 0; i < menuItemInformation.length; i++) {
             if (i + 1 == menuItemInformation.length) {
-                listItem[i] = new ItemTaskbar(menuItemInformation[i][1], menuItemInformation[i][0]);
-                pnlBottom.add(listItem[i]);
+                listItem[i] = new ItemMenu(menuItemInformation[i][1], menuItemInformation[i][0]);
+                bottomPanel.add(listItem[i]);
             } else {
-                listItem[i] = new ItemTaskbar(menuItemInformation[i][1], menuItemInformation[i][0]);
-                pnlCenter.add(listItem[i]);
+                listItem[i] = new ItemMenu(menuItemInformation[i][1], menuItemInformation[i][0]);
+                centerPanel.add(listItem[i]);
                 if (i != 0) {
                     if (false) {
                         listItem[i].setVisible(false);
@@ -160,16 +160,16 @@ public class MenuTaskbar extends JPanel {
         return scrollPane;
     }
 
-    public JPanel getPnlCenter() {
-        return pnlCenter;
+    public JPanel getCenterPanel() {
+        return centerPanel;
     }
 
-    public JPanel getPnlTop() {
-        return pnlTop;
+    public JPanel getTopPanel() {
+        return topPanel;
     }
 
-    public JPanel getPnlBottom() {
-        return pnlBottom;
+    public JPanel getBottomPanel() {
+        return bottomPanel;
     }
 
     public JPanel getBar1() {
